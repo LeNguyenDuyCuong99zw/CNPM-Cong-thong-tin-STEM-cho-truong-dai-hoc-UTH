@@ -1,1 +1,24 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'tong_quan' %}">Tổng quan</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1">Lịch sử hình thành</div>
+      <p>Ngày 18/05/1988, Bộ Giao thông vận tải và Bưu điện đã ra quyết định số 1252/TCCB-LĐ thành lập “Trung tâm đào tạo, bồi dưỡng tại chức Giao thông vận tải tại thành phố Hồ Chí Minh” và sau đó chuyển đổi thành “Trung tâm đại học Hàng hải phía Nam” (quyết định số 968/TCCB-LĐ ngày 14/01/1989).</p>
+
+      <p>Trong năm học đầu tiên 1988 -1989, với 20 cán bộ, giảng viên, Trung tâm đã tuyển được 253 sinh viên các ngành Điều khiển tàu biển, Khai thác Máy tàu thủy, Điện tàu thủy, Kinh tế vận tải biển, Cơ giới hóa xếp dỡ, Xây dựng công trình thủy, Sửa chữa máy tàu biển, Đóng tàu thủy cho các hệ chính quy, ngắn hạn, tại chức. Việc khai giảng khóa đào tạo chính quy đầu tiên trên đã đặt cột mốc quan trọng cho quá trình hình thành và phát triển Trường ĐH Giao thông vận tải TP.HCM.</p>
+
+      <p>Ngày 20/08/1991, Bộ Giao thông vận tải có quyết định số 1665 QĐ/TCCB-LĐ chuyển đổi tổ chức và hoạt động của Trung tâm đại học Hàng hải phía Nam thành Phân hiệu Đại học Hàng hải trực thuộc trường Đại học Hàng hải. </p>
+      <div class="img_anh" style="display: flex; justify-content: center; align-items: center;">
+        <img
+            src="{% static 'app/images/lichsuhinhthanh/Lichsuhinhthanh.jpg' %}"
+            alt="Image 1"
+            width="700"
+            height="400" 
+        />
