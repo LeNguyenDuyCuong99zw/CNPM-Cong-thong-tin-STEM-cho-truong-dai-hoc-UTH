@@ -73,3 +73,27 @@ ul {
   padding: 15px;
   background-color: #f9f9f9;
 }
+.award-table {
+  width: 80%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.award-table th,
+.award-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid black;
+  color: black; 
+}
+
+.award-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.award-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
