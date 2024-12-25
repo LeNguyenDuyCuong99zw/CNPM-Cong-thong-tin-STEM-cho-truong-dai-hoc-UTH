@@ -1,1 +1,52 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'lich_su_hinh_thanh' %}">Lịch sử hình thành</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1"><b>Triết lý giáo dục - Giá trị cốt lõi</b></div>
+      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+        <img
+            src="{% static 'app/images/trains_slide/trains1.jpg' %}"
+            alt="Image 1"
+            style="max-width: 100%; height: auto; border-radius: 8px;" 
+        />
+    </div>
+      <div class="custom-heading-4"><b>* Ý nghĩa của Triết lý giáo dục nhà trường</b></div>
+      <p>Triết lý giáo dục của một trường đại học là tư tưởng chỉ đạo, xuyên suốt làm định hướng phát triển cho nhà trường. Với triết lý giáo dục “Kiến thức - Kỹ năng - Sáng tạo - Hội nhập”, Trường Đại học Giao thông vận tải TP.HCM nhằm hướng đến mục tiêu đào tạo ra những con người vững kiến thức, thành thục kỹ năng, phát triển được tiềm năng sáng tạo và kỹ năng hội nhập quốc tế sâu rộng vào nền kinh tế tri thức toàn cầu đang thay đổi nhanh chóng hiện nay.</p>
+      <div class="custom-heading-4"><b>* Nội dung</b></div>
+      <p><b>- Kiến thức:</b>Trường Đại học Giao thông vận tải TP.HCM cung cấp đầy đủ các kiến thức nền tảng vững chắc, kiến thức chuyên sâu về nghề nghiệp, đồng thời truyền cảm hứng và trợ giúp cho sinh viên để đạt hiệu quả mong muốn. Sinh viên tìm thấy niềm vui trong học tập, tạo cảm hứng và yêu mến học tập, học suốt đời.</p>
+      <p><b>- Kỹ năng:</b>Trường Đại học Giao thông vận tải TP.HCM luôn đề cao tính ứng dụng vào thực tiễn; Sinh viên sẽ được thực tập, rèn luyện kinh nghiệm trong môi trường làm việc thực tế và tích lũy đủ kỹ năng mềm và kỹ năng chuyên môn phù hợp với nghề nghiệp để triển khai các công việc thực tế sau khi ra trường;</p>
+      <p><b>- Sáng tạo:</b>Trường Đại học Giao thông vận tải TP.HCM hướng tới phát huy tối đa khả năng của người học thông qua các hoạt động nghiên cứu và triển khai áp dụng các nghiên cứu vào thực tế đời sống. Sinh viên có khả năng nghiên cứu và ứng dụng khoa học - công nghệ.</p>
+      <p><b>- Hội nhập:</b> Trường Đại học Giao thông vận tải TP.HCM luôn chú trọng sự kết nối giữa nhà trường, cộng đồng và doanh nghiệp, tổ chức nhiều hoạt động hợp tác, liên kết quốc tế, ngoại khóa, hội thảo quốc tế, để trau dồi kỹ năng sống và kỹ năng hội nhập cho sinh viên.</p>
+      <div class="custom-heading-4"><b>MỤC TIÊU CHẤT LƯỢNG</b></div>
+      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+        <img
+            src="{% static 'app/images/trains_slide/trains4.jpg' %}"
+            alt="Image 1"
+            style="max-width: 100%; height: auto; border-radius: 8px;" 
+        />
+    </div>
+    <div class="custom-heading-4"><b>* Ý nghĩa của các giá trị cốt lõi</b></div>
+    <p>Giá trị cốt lõi của một trường đại học là kim chỉ nam cho mọi  hoạt động giảng dạy, học tập và rộng hơn là mọi hoạt động liên quan của nhà trường nhằm phát triển con người.</p>
+    <div class="custom-heading-4"><b>* Nội dung</b></div>
+    <p><b>- Đoàn kết:</b> Trong quá trình xây dựng và phát triển Trường Đại học Giao thông vận tải TP.HCM, tập thể giảng viên, CNVC và sinh viên luôn xem trọng đoàn kết, đồng lòng; Đoàn kết chính là sức mạnh giúp Nhà trường vượt qua mọi khó khăn, thách thức hoàn thành tốt nhiệm vụ được giao và đạt được các mục tiêu phát triển;</p>
+    <p><b>- Nhân văn:</b> Trường Đại học Giao thông vận tải TP.HCM không chỉ cung cấp cho sinh viên một nền tảng giáo dục mang đậm tính nhân văn như: phẩm giá, tình cảm, trí tuệ, vẻ đẹp, sức mạnh, mà còn khuyến khích sinh viên sống chân thật, vị tha, khoan dung, yêu cái đẹp, yêu thiên nhiên;</p>
+    <p><b>- Chất lượng:</b> Trường Đại học Giao thông vận tải TP.HCM luôn đặt chất lượng đào tạo lên hàng đầu trong mọi hoạt động phát triển của Nhà trường; Phấn đấu trở thành trường Đại học đa ngành có trình độ cao; Lấy người học làm trung tâm; Định hướng phát triển đào tạo đáp ứng nhu cầu xã hội, nâng cao kỹ năng nghề nghiệp cho sinh viên;</p>
+    <p><b>- Sáng tạo:</b>  Trường Đại học Giao thông vận tải TP.HCM luôn khuyến khích sự sáng tạo, đổi mới; Tôn trọng sự khác biệt và đa dạng trong giảng dạy, nghiên cứu, quản trị nhà trường và định hướng phát triển Nhà trường;</p>
+    <p><b>- Hội nhập:</b>   Trường Đại học Giao thông vận tải TP.HCM luôn tăng cường hội nhập quốc tế, tích cực phát triển hợp tác quốc tế, đa dạng hóa các hoạt động hợp tác trong tất cả các lĩnh vực, gồm: đào tạo, nghiên cứu khoa học, phát triển công nghệ và dịch vụ tư vấn GTVT ở Việt Nam và khu vực; Tăng cường uy tín của Nhà trường.
+    </p>
+    <div class="return-q">
+      <a href="{% url 'home' %}"><div align="right">Quay lại</div>
+      
+    </div>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}
+app/templates/app/articles/triet_ly_giao_duc.html
