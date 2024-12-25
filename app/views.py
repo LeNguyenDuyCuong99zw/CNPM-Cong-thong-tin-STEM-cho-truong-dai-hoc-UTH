@@ -21,7 +21,7 @@ def chuc_nang_nhiem_vu(request):
     return render(request, 'app/articles/chuc_nang_nhiem_vu.html')  
 
 def co_cau_to_chuc(request):
-    return render(request, 'app/articles/co_cau_to_chuc.html') 
+    return render(request, 'app/articles/co-cau-to-chuc.html') 
 
 def hoi_dong_truong(request):
     return render(request, 'app/articles/hoi_dong_truong.html') 
