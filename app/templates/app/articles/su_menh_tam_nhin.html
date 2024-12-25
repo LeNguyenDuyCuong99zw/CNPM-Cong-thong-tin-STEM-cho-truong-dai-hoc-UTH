@@ -1,1 +1,23 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'lich_su_hinh_thanh' %}">Lịch sử hình thành</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1"><b>Sứ mệnh - Tầm nhìn</b></div>
+      <div class="custom-heading-4"><b>TUYÊN BỐ SỨ MỆNH</b></div>
+      <p>Trường Đại học Giao thông vận tải thành phố Hồ Chí Minh đào tạo đội ngũ cán bộ khoa học kỹ thuật, cán bộ quản lý trình độ đại học và sau đại học; tổ chức nghiên cứu khoa học, chuyển giao công nghệ về giao thông vận tải và các lĩnh vực liên quan phục vụ cho sự nghiệp công nghiệp hóa - hiện đại hóa đất nước và hội nhập quốc tế.</p>
+      <div class="custom-heading-4"><b>TẦM NHÌN</b></div>
+      <p>Đến năm 2030, Trường phấn đấu trở thành trường đại học lớn, đa ngành của Việt Nam, là trung tâm đào tạo, bồi dưỡng, nghiên cứu khoa học hàng đầu về giao thông vận tải và các lĩnh vực liên quan, có uy tín, hoà nhập với các trường đại học trong khu vực và vững vàng tiếp cận trình độ các trường đại học tiên tiến trên thế giới.</p>
+      <div class="custom-heading-4"><b>MỤC TIÊU CHẤT LƯỢNG</b></div>
+      <p>Trường phấn đấu trở thành trường đại học đào tạo nhân lực trình độ cao theo hướng ứng dụng trong lĩnh vực giao thông vận tải của khu vực phía Nam và cả nước. Hoàn thiện cơ cấu ngành nghề và trình độ đào tạo phù hợp với quy hoạch phát triển nhân lực của Bộ Giao thông vận tải và quốc gia, trong đó, có một số ngành ngang tầm khu vực và quốc tế. Tăng số lượng và chất lượng các đề tài nghiên cứu, chuyển giao công nghệ có hàm lượng khoa học cao, đảm bảo tính ứng dụng và triển khai thực tế.</i></p>
+      <p style="font-size: 14px;" ><i>(Theo Nghị quyết số 14/NQ-HĐTDHGTVT ngày 11 tháng 01 năm 2021 của Hội đồng trường Trường Đại học Giao thông vận tải TP. Hồ Chí Minh)</p>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}
