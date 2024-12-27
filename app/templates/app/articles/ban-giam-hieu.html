@@ -1,1 +1,23 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'lich_su_hinh_thanh' %}">Lịch sử hình thành</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1"><b>Hiệu trưởng và các Phó Hiệu trưởng</b></div>
+      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+        <img
+            src="{% static 'app/images/gioithieu/Hieutruong/HT - PHT 1.png' %}"
+            alt="Image 1"
+            style="max-width: 90%; height: auto; border-radius: 8px; border: 1px solid black; " 
+        />
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}
