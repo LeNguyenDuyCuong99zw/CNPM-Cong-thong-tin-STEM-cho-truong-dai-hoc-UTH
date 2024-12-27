@@ -1,1 +1,69 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'co_cau_to_chuc' %}">Cơ cấu tổ chức</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1"><b>Cơ cấu tổ chức</b></div>
+      
+      <div class="custom-heading-3"><b>Hội đồng Trường</b></div>
+      <p></p>
+      <div class="custom-heading-3"><b>Hiệu trưởng và các Phó Hiệu trưởng</b></div>
+      <p></p>
+      <div class="custom-heading-4"><b>Các khoa, viện, trung tâm, bộ môn quản lý đào tạo</b></div>
+      <p></p>
+      <div class="section1">     
+        <div class="list-item1"><a href="#khoa-co-ban">Khoa Cơ bản</a></div>
+        <div class="list-item1"><a href="#vien-cntt-truyen-thong">Viện Công nghệ thông tin và Truyền thông</a></div>
+        <div class="list-item1"><a href="#vien-co-khi">Viện Cơ khí</a></div>
+        <div class="list-item1"><a href="#vien-hang-hai">Viện Hàng hải</a></div>
+        <div class="list-item1"><a href="#vien-khoa-hoc-chinh-tri-xa-hoi">Viện Khoa học chính trị và xã hội</a></div>
+        <div class="list-item1"><a href="#vien-nghien-cuu-dao-tao-dai-ca">Viện Nghiên cứu - Đào tạo Đại Cà</a></div>
+        <div class="list-item1"><a href="#vien-duong-sat-ha-noi">Viện Đường sắt Hà Nội và các cơ sở</a></div>
+        </div>
+        <div class="custom-heading-4"><b>Các phòng, ban, trung tâm chức năng</b></div>
+        <p></p>
+        <div class="section1">
+          <div class="list-item1"><a href="#phong-cong-tac-sinh-vien">Phòng Công tác sinh viên</a></div>
+          <div class="list-item1"><a href="#phong-dao-tao">Phòng Đào tạo</a></div>
+          <div class="list-item1"><a href="#phong-ke-hoach-tai-vu">Phòng Kế hoạch - Tài vụ</a></div>
+          <div class="list-item1"><a href="#phong-khoa-hoc-cong-nghe-hop-tac-quoc-te">Phòng Khoa học công nghệ và Hợp tác quốc tế</a></div>
+          <div class="list-item1"><a href="#phong-quan-ly-dao-tao">Phòng Quản lý đào tạo</a></div>
+          <div class="list-item1"><a href="#phong-to-chuc-hanh-chinh">Phòng Tổ chức - Hành chính</a></div>
+          <div class="list-item1"><a href="#trung-tam-thong-tin-thu-vien">Trung tâm Thông tin - Thư viện</a></div>
+          <div class="list-item1"><a href="#trung-tam-tu-van-tuyen-sinh">Trung tâm Tư vấn - Tuyển sinh</a></div>
+          <div class="list-item1"><a href="#vien-dao-tao-sau-dai-hoc">Viện Đào tạo Sau đại học</a></div>
+          <div class="list-item1"><a>Phân hiệu Trường tại cơ sở Đồng Nai</a></div>
+          </div>
+          <div class="custom-heading-4"><b>Các tổ chức nghiên cứu và phát triển, đơn vị sự nghiệp, cơ sở sản xuất, kinh doanh, dịch vụ</b></div>
+          <p></p>
+          <div class="section1">
+            <div class="list-item1"><a href="#tap-chi-khoa-hoc-cong-nghe-ung-dung">Tập chí Khoa học công nghệ và ứng dụng</a></div>
+            <div class="list-item1"><a href="#trung-tam-nckh-phat-trien-cong-nghe-cao">Trung tâm NCKH và phát triển công nghệ cao</a></div>
+            <div class="list-item1"><a href="#trung-tam-ngoai-ngu-cntt-dao-tao-ngan-han">Trung tâm Ngoại ngữ, CNTT và đào tạo ngắn hạn</a></div>
+            <div class="list-item1"><a href="#trung-tam-dich-vu-ho-tro-sinh-vien">Trung tâm Dịch vụ và Hỗ trợ sinh viên</a></div>
+            <div class="list-item1"><a href="#trung-tam-logistics">Trung tâm Logistics</a></div>
+            <div class="list-item1"><a href="#trung-tam-san-dao-tao-thuc-nghiem">Trung tâm Sản đào tạo thực nghiệm</a></div>
+            <div class="list-item1"><a href="#vien-nang-luong-giao-thong">Viện Năng lượng và Giao thông</a></div>
+            <div class="list-item1"><a href="#vien-dao-tao-hop-tac-quoc-te">Viện Đào tạo & Hợp tác quốc tế</a></div>
+            <div class="list-item1"><a href="#">Phòng Thi nghiệm LAS-XD019</a></div>
+            </div>
+            <div class="custom-heading-4"><b>Tổ chức chính trị - xã hội</b></div>
+            <p></p>
+            <div class="section1">
+              <div class="list-item1"><a href="#">Đảng bộ</a></div>
+              <div class="list-item1"><a href="#">Công đoàn trường</a></div>
+              <div class="list-item1"><a href="#">Đoàn thanh niên - Hội sinh viên</a></div>
+              </div>
+              <div class="return-q">
+                <a href="{% url 'home' %}"><div align="right"><p style=" color:aqua ;"> Quay lại</p></div>
+              </div>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}

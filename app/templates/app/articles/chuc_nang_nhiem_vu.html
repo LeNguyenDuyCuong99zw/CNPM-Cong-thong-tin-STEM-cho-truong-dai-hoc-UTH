@@ -1,1 +1,37 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'lich_su_hinh_thanh' %}">Chức năng - Nhiệm vụ</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1"><b>Chức năng - Nhiệm vụ</b></div>
+      <p style="font-size: 14px; text-align: center ;" ><i>(Trích quyết định số 1972/ 2001/ QÐ -BGTVT ngày 22 tháng 6 năm 2001 của Bộ trưởng Bộ GTVT)</i></p>
+      <p><b>Ðiều 1 :</b> Chuyển nguyên trạng Phân hiệu Ðại học Hàng hải, trực thuộc Trường Ðại học Hàng hải (bao gồm: tổ chức, công chức, viên chức, trụ sở, tài sản, vật tư, tiền vốn…) về Trường Ðại học Giao thông Vận tải Thành phố Hồ Chí Minh.</p>
+      <p><b>Ðiều 2 :</b> Trường Ðại học Giao thông Vận tải Thành phố Hồ Chí Minh (sau đây gọi tắt là trường) là cơ sở đào tạo đại học trực thuộc Bộ Giao thông vận tải có các nhiệm vụ và quyền hạn sau :</p>
+      <p>1. Ðào tạo cán bộ có trình độ đại học, sau đại học, trên đại học (khi được cơ quan có thẩm quyền cho phép), cao đẳng thuộc lĩnh vực giao thông vận tải và các ngành khác có liên quan;</p>
+      <p>2. Xây dựng kế hoạch dài hạn, kế hoạch 5 năm và hàng năm về công tác đào tạo cán bộ khoa học kỹ thuật thuộc lĩnh vực giao thông vận tải đường biển, đường bộ, đường sắt, đường sông, hàng không dân dụng, …;</p>
+      <p>3. Tổ chức xây dựng chương trình đào tạo, kế hoạch giảng dạy và học tập cho các ngành đào tạo của trường trên cơ sở chương trình khung do Bộ Giáo dục và Ðào tạo ban hành. Tổ chức biên soạn, duyệt và thẩm định các giáo trình theo chuyên ngành và các tài liệu giảng dạy, học tập của trường;</p>
+      <p>4. Tổ chức tuyển sinh theo quy chế của Bộ Giáo dục và Ðào tạo;</p>
+      <p>5. Tiến hành các hoạt động đào tạo trong phạm vi ngành nghề, trình độ đào tạo, chỉ tiêu tuyển sinh và phương thức đào tạo đã được Bộ Giáo dục và Ðào tạo quy định. Tổ chức thi, kiểm tra, công nhận tốt nghiệp và cấp bằng tốt nghiệp cho những người được đào tạo tại trường theo quy chế của Bộ Giáo dục và Ðào tạo.</p>
+      <p>Thường xuyên cải tiến mục tiêu, nội dung, phương pháp đào tạo để đáp ứng yêu cầu ngày càng cao của sự nghiệp công nghiệp hóa, hiện đại hóa ngành giao thông vận tải từng bước hội nhập khu vực và quốc tế;</p>
+      <p>6. Tổ chức việc bồi dưỡng, đào tạo và đào tạo lại nhằm nâng cao trình độ chuyên môn, nghiệp vụ cho đội ngũ cán bộ khoa học kỹ thuật ngành giao thông vận tải và giảng viên của trường;</p>
+      <p>7. Tổ chức mở các lớp cập nhật kiến thức, nâng cao trình độ, huấn luyện nghiệp vụ cho sỹ quan, thuyền viên, cấp chứng chỉ theo quy định của các Công ước quốc tế, của IMO;</p>
+      <p>8. Tổ chức thực hiện các chương trình, đề tài, dự án nghiên cứu, ứng dụng khoa học và công nghệ, chuyển giao công nghệ, thông tin, tư vấn, dịch vụ khoa học và công nghệ;</p>
+      <p>9. Hợp tác, liên doanh, liên kết với các tổ chức trong nước và quốc tế về đào tạo, nghiên cứu khoa học, thực hiện các dự án khoa học sản xuất nhằm ứng dụng công nghệ mới, các dự án nâng cao năng lực đội ngũ giáo viên, tăng cường cơ sở vật chất; tổ chức Hội nghị, hội thảo, triển lãm quốc tế theo các quy định của pháp luật;</p>
+      <p>10. Trình cấp có thẩm quyền thành lập hoặc thành lập theo thẩm quyền và trực tiếp quản lý các tổ chức thuộc trường; trình cấp có thẩm quyền bổ nhiệm cán bộ và các chức danh của Nhà nước; bổ nhiệm cán bộ, tiếp nhận công chức, viên chức theo quy định của Nhà nước và phân cấp của Bộ Giao thông vận tải;</p>
+      <p>11. Quản lý các nguồn vốn; xây dựng và thực hiện kế hoạch thu, chi tài chính; quản lý cơ sở vật chất, trang thiết bị của trường theo quy định của pháp luật;</p>
+      <p>12. Ðược hưởng các chế độ đối với trường Ðại học theo quy định hiện hành;</p>
+      <p>13. Tổ chức việc kiểm tra, thanh tra các hoạt động của trường và thực hiện các nhiệm vụ khác theo quy định của pháp luật.</p>
+      <a href="app/pdf/Quy che to chuc hoat dong truong 2021.pdf" target="_blank">Quy chế tổ chức và hoạt động của Trường ĐH Giao thông vận tải TP.HCM</a>
+      <div class="return-q">
+        <a href="{% url 'home' %}"><div align="right"><p style=" color:aqua ;"> Quay lại</p></div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}
