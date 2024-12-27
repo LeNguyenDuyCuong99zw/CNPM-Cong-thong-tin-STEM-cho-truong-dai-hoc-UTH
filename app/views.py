@@ -30,7 +30,7 @@ def ban_giam_hieu(request):
     return render(request, 'app/articles/ban-giam-hieu.html')  
 
 def co_so_vat_chat(request):
-    return render(request, 'app/articles/co_so_vat_chat.html')  
+    return render(request, 'app/articles/co-so-vat-chat.html')  
 
 def tap_chi(request):
     return render(request, 'app/articles/tap_chi.html') 
