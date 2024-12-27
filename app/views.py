@@ -27,7 +27,7 @@ def hoi_dong_truong(request):
     return render(request, 'app/articles/hoi_dong_truong.html') 
 
 def ban_giam_hieu(request):
-    return render(request, 'app/articles/ban_giam_hieu.html')  
+    return render(request, 'app/articles/ban-giam-hieu.html')  
 
 def co_so_vat_chat(request):
     return render(request, 'app/articles/co_so_vat_chat.html')  
