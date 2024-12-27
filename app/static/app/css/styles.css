@@ -8,15 +8,14 @@ body {
     box-sizing: border-box; 
 }
 
-
 .header {
     position: relative;
     text-align: center;
 }
 
 .img {
-    width: 100vw;
-    height: 15vh;
+    width: 100%;
+    height: auto;
     max-width: none;
     display: block;
     margin: 0;
@@ -34,6 +33,7 @@ body {
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .nav.fixed {
@@ -46,7 +46,7 @@ body {
     padding: 10px 14px;
     text-decoration: none;
     font-size: 14px;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s, color 0.3s; /* Added color transition */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s, color 0.3s;
     border-radius: 4px;
 }
 
@@ -54,7 +54,7 @@ body {
     background-color: #004d4d;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: #ffcc00; /* Change text color on hover */
+    color: #ffcc00;
 }
 
 .dropdown {
@@ -72,14 +72,14 @@ body {
     font-family: inherit;
     margin: 0;
     border-radius: 4px;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s, color 0.3s; /* Added color transition */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s, color 0.3s;
 }
 
 .dropdown .dropbtn:hover {
     background-color: #004d4d;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: #ffcc00; /* Change text color on hover */
+    color: #ffcc00;
 }
 
 .dropdown-content {
@@ -101,7 +101,7 @@ ul {
     display: block;
     text-align: left;
     font-size: 12px;
-    transition: background-color 0.3s, transform 0.2s, color 0.3s; /* Added color transition */
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
 }
 
@@ -112,7 +112,7 @@ ul {
 .dropdown-content a:hover {
     background-color: #004d4d;
     transform: scale(1.05);
-    color: #ffcc00; /* Change text color on hover */
+    color: #ffcc00;
 }
 
 .dropdown:hover .dropdown-content {
@@ -150,6 +150,8 @@ ul {
         display: block;
         width: 100%;
         text-align: left;
+        padding: 10px;
+        box-sizing: border-box;
     }
     .nav {
         display: none;
@@ -158,98 +160,131 @@ ul {
     }
     .menu-btn {
         display: block;
+        cursor: pointer;
+    }
+    .dropdown {
+        position: relative; 
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 80%;
+        z-index: 999;
+        left: 20%; 
+        top: 0; 
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .nav {
+        padding: 10px 0;
+    }
+    .nav a {
+        font-size: 12px;
+    }
+    .content {
+        padding: 15px;
     }
 }
 *, *::before, *::after {
     box-sizing: border-box;
 }
 .slider-container-wrapper {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-  margin-right: 110px;
-}
-
-.slider-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 0;
-  background: radial-gradient(circle, #f0f4f8, #d9d9d9);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.slider-wrapper {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slider-item {
-  flex: 1 0 20%;
-  box-sizing: border-box;
-  background: #ffffff;
-  border-radius: 0;
-  margin: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.slider-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background: #e0e0e0;
-}
-
-.slider-item img {
-  width: 100%;
-  height: auto;
-  max-height: 150px;
-  object-fit: cover;
-}
-
-.nav-container {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transform: translateY(-50%);
-  padding: 0 10px;
-}
-
-.prev-button, .next-button {
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  transition: background-color 0.3s, transform 0.3s;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.prev-button:hover, .next-button:hover {
-  background-color: #218838;
-  transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-  .slider-item {
-      flex: 1 0 45%;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    margin-right: 110px;
   }
-}
-
-@media (max-width: 480px) {
-  .slider-item {
-      flex: 1 0 100%;
+  
+  .slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    background: radial-gradient(circle, #f0f4f8, #d9d9d9);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
-}
+  
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slider-item {
+    flex: 1 0 20%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
+  
+  .slider-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #e0e0e0;
+  }
+  
+  .slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .nav-container {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    padding: 0 10px;
+  }
+  
+  .prev-button, .next-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .prev-button:hover, .next-button:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .slider-item {
+        flex: 1 0 45%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slider-item {
+        flex: 1 0 100%;
+    }
+  }
+  
 
