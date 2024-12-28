@@ -4,3 +4,31 @@
 {% block tongquan %}
 <body class="main-gh">
   <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'lich_su_hinh_thanh' %}">Lịch sử hình thành</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1"><b>Cơ sở vật chất</b></div>
+      <p>Đến năm 2030, Trường phấn đấu trở thành trường đại học lớn, đa ngành của Việt Nam, là trung tâm đào tạo, bồi dưỡng, nghiên cứu khoa học hàng đầu về giao thông vận tải và các lĩnh vực liên quan, có uy tín, hoà nhập với các trường đại học trong khu vực và vững vàng tiếp cận trình độ các trường đại học tiên tiến trên thế giới.</p>
+      <p>Kinh phí đầu tư cho cơ sở vật chất của Nhà trường không ngừng tăng lên theo từng năm. Hệ thống phòng học, phòng thí nghiệm, đặc biệt là thí nghiệm công nghệ cao đã và đang được đầu tư mới để đáp ứng nhu cầu đào tạo.</p>
+      <p style=" color: blue">1. Cơ sở 1: số 2, đường Võ Oanh (D3 cũ), P. 25, Q. Bình Thạnh, TP. HCM.</p>
+      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+        <img
+            src="{% static 'app/images/gioithieu/csvc/CCS 1.jpg' %}"
+            alt="Image 1"
+            style="max-width: 60%; height: auto; border-radius: 8px;" 
+        />
+    </div>
+    <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+      <img
+          src="{% static 'app/images/gioithieu/csvc/Mat sau (1).jpg' %}"
+          alt="Image 1"
+          style="max-width: 60%; height: auto; border-radius: 8px;" 
+      />
+  </div>
+      <p style="font-size: 14px;" ><i>(Theo Nghị quyết số 14/NQ-HĐTDHGTVT ngày 11 tháng 01 năm 2021 của Hội đồng trường Trường Đại học Giao thông vận tải TP. Hồ Chí Minh)</p>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}
