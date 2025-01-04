@@ -1,31 +1,33 @@
 .vertical-menu1 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; 
-    padding-right: 140px; 
-    right: 0; 
-    top: 50px; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  padding-right: 140px; 
+  right: 0; 
+  top: 50px; 
 }
 
 .vertical-menu1 a {
-    margin-bottom: 10px; 
+  margin-bottom: 10px; 
 }
 
 .vertical-menu1 img {
-    max-width: 200px; 
-    height: auto; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  max-width: 200px; 
+  height: auto; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
+
 .vertical-menu2 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; 
-    padding-right: 200px; 
-    right: 0; 
-    top: 50px; 
-    margin-top: 10px;  
-    margin-bottom: 10px; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  padding-right: 200px; 
+  right: 0; 
+  top: 50px; 
+  margin-top: 10px;  
+  margin-bottom: 10px; 
 }
+
 .dropdown4 {
   position: relative;
   display: inline-block;
@@ -83,6 +85,7 @@
 .dropdown-content-inner4:hover {
   display: block;
 }
+
 .slider-container-wrapper {
   width: 80%;
   max-width: 1200px;
@@ -101,7 +104,7 @@
 
 .slider-wrapper {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Sử dụng cubic-bezier để có hiệu ứng chuyển động mềm mại hơn */
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .slider-item {
@@ -137,7 +140,7 @@
 }
 
 .prev-button, .next-button {
-  background-color: #007bff; /* Sử dụng màu xanh hiện đại */
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -154,16 +157,44 @@
 
 @media (max-width: 768px) {
   .slider-item {
-    flex: 1 0 50%;
-    padding: 5px; /* Thêm padding để các item trông không quá sát nhau */
+      flex: 1 0 50%;
+      padding: 5px;
   }
 }
 
 @media (max-width: 480px) {
   .slider-item {
-    flex: 1 0 100%;
-    padding: 10px; /* Thêm padding cho các thiết bị nhỏ hơn */
-    border: none;
-    box-shadow: none;
+      flex: 1 0 100%;
+      padding: 10px;
+      border: none;
+      box-shadow: none;
+  }
+}
+@media (max-width: 1024px) {
+  .slider-item {
+      flex: 1 0 33.33%; /* Adjust for tablets */
+      padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vertical-menu1, .vertical-menu2 {
+      padding-right: 20px; /* Reduce padding for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .dropbtn4 {
+      font-size: 14px; /* Smaller button text */
+      padding: 8px; /* Smaller padding */
+  }
+
+  .dropdown-content4 a {
+      padding: 10px 12px; /* Adjust link padding */
+  }
+
+  .slider-item {
+      flex: 1 0 100%; /* Stack items on very small screens */
+      padding: 5px; /* Less padding */
   }
 }
