@@ -1,1 +1,61 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'lich_su_hinh_thanh' %}">Lịch sử hình thành</a>
+      
+    </div>
+    <div class="content-wrapper">
+      <div class="custom-heading-1"><b>Tạp chí - Báo UTH</b></div>
+      <div class="body-content">
+        <div class="intro-content">
+            <div class="intro-title">Giới Thiệu Tạp Chí UTH</div>
+            <div class="intro">
+            <p>Chào mừng bạn đến với Tạp Chí UTH! Chúng tôi cung cấp thông tin và tin tức mới nhất về các chủ đề thú vị.</p>
+            <p >Dưới đây là các liên kết đến các trang khác:</p>         
+            <ul class="link-list">
+                <li><a href="https://thuvienso.ut.edu.vn/communities/9d671911-156a-4834-8af6-df4da3a36f3c">Thư Viện Số UTH</a></li>
+                <li><a href="https://thuvienso.ut.edu.vn/home">BÁO - TẠP CHÍ</a></li>
+            </ul>      </div>     
+        </div>
+        <div class="card_123">
+            <h3>Card 1</h3>
+            <div class="img_anh" style="display: flex; justify-content: left; align-items: center; margin: 20px 0;">
+                <img
+                    src="{% static 'app/images/gioithieu/tap chi/Bia Tap chi.jpg' %}"
+                    alt="Image 1"
+                    style="max-width: 100%; height: auto; border-radius: 8px;" 
+                />
+              </div>
+        </div>
+        <div class="card_123">
+            <h3>Card 2</h3>
+            <div class="img_anh" style="display: flex; justify-content: left; align-items: center; margin: 20px 0;">
+                <img
+                    src="{% static 'app/images/gioithieu/tap chi/Bia Tap chi.jpg' %}"
+                    alt="Image 1"
+                    style="max-width: 100%; height: auto; border-radius: 8px;" 
+                />
+              </div>
+        </div>
+        <div class="card_123">
+            <h3>Card 3</h3>
+            <div class="img_anh" style="display: flex; justify-content: left; align-items: center; margin: 20px 0;">
+                <img
+                    src="{% static 'app/images/gioithieu/tap chi/Bia Tap chi.jpg' %}"
+                    alt="Image 1"
+                    style="max-width: 100%; height: auto; border-radius: 8px;" 
+                />
+              </div>
+        </div>
+        <div class="return-q">
+          <a href="{% url 'home' %}"><div align="right"><p style=" color:aqua ;"> Quay lại</p></div>
+        </div>
+    </div>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}
