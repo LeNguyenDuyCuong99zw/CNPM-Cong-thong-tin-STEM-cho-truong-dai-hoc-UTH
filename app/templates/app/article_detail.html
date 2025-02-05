@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %} {% load static %} {% block content1 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ article.title }}</title>
+  </head>
+  <body class="main-gh">
+    <div class="container1">
+      <div class="header-content">
+        <a href="{% url 'home' %}"
+          ><img src="{% static 'app/images/home.png' %}" align="left" />Trang
+          chủ</a
+        >
+        <a>/</a
+        ><a href="{% url 'article_detail' slug=article.slug %}"
+          >{{ article.title }}</a
+        >
+      </div>
+      <div class="content-wrapper">
+        <div>{{ article.content|safe }}</div>
+      </div>
+
+      <div class="return-q" style="margin-top: 30px">
+        <a
+          href="{% url 'home' %}"
+          style="text-decoration: none; color: #007bff; font-weight: bold"
+        >
+          <div align="right">Quay lại</div>
+        </a>
+      </div>
+    </div>
+    <img
+      src="{% static 'app/images/Chuc-Mung-Nam-Moi-2025-Loi-chuc-tet-den-ong-ba-cha-me.jpg' %}"
+      alt="Mô tả ảnh"
+      class="right-image"
+    />
+  </body>
+</html>
+{% endblock %}

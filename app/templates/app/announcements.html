@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %} {% load static %} {% block content1 %}
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách Thông Báo</title>
+    <link rel="stylesheet" href="{% static 'app/css/styles.css' %}" />
+    <style>
+      .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+      .pagination a {
+        margin: 0 5px;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: black;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .pagination a:hover {
+        background-color: #ddd;
+      }
+      .pagination a.active {
+        background-color: #292b2d;
+        color: white;
+        border: 1px solid #292b2d;
+      }
+    </style>
+  </head>
+  <body class="main-gh">
+    <div class="container1">
+      <div class="header-content">
+        <a href="{% url 'home' %}">
+          <img src="{% static 'app/images/home.png' %}" align="left" />Trang chủ
+        </a>
+        <a>/</a><a href="{% url 'announcements' %}">Thông Báo Mới</a>
+      </div>
+      <div class="content-wrapper">
+        <div class="custom-heading-1"><b>Thông Báo Mới</b></div>
+        <div class="news-list8">
+          {% for page in announcements %}
+          <a
+            href="{% url 'announcement_detail' slug=page.slug %}"
+            class="news-link8"
+          >
+            <div class="news-item8">
+              <div class="news-container811">
+                <div class="news-title-container9811">
+                  <div class="button-container811">
+                    <img
+                      src="{% static 'app/images/thongbaologo.png' %}"
+                      alt="Image"
+                      class="round-image"
+                    />
+                  </div>
+                  <div class="news-title9811">{{ page.name }}</div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="pagination">
+          <span class="step-links">
+            {% if announcements.has_previous %}
+            <a href="?page=1">&laquo; đầu</a>
+            <a href="?page={{ announcements.previous_page_number }}">trước</a>
+            {% endif %} {% if announcements.has_next %}
+            <a href="?page={{ announcements.next_page_number }}">sau</a>
+            <a href="?page={{ announcements.paginator.num_pages }}"
+              >cuối &raquo;</a
+            >
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock %}

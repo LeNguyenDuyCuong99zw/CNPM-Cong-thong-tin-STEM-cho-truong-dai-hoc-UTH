@@ -7,14 +7,21 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'app/css/trains.css' %}" />
     <link rel="stylesheet" href="{% static 'app/css/contentleft.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/trans1.css' %}" />
     <link rel="stylesheet" href="{% static 'app/css/styles1.css' %}" />
     <link rel="stylesheet" href="{% static 'app/css/footer.css' %}" />
     <link rel="stylesheet" href="{% static 'app/css/styles.css' %}" />
-    <link rel="icon" type="image/png" href="{% static 'app/images/logo3.png' %}">
+    <link rel="stylesheet" href="{% static 'app/css/tintuc.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/tintuc2.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/content_main.css' %}" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'app/images/logo3.png' %}"
+    />
     <script src="{% static 'app/js/main.js' %}"></script>
   </head>
-  <style>
-  </style>
+  <style></style>
   <body>
     <!--header-->
     <div>
@@ -30,56 +37,139 @@
         <div class="dropdown">
           <a href="#gioithieu" class="dropbtn">Giới thiệu</a>
           <div class="dropdown-content">
-            <a href="{% url 'tong_quan' %}">Tổng quan</a>
-            <a href="{% url 'lich_su_hinh_thanh' %}">Lịch sử hình thành</a>
-            <a href="{% url 'su_menh_tam_nhin' %}">Sứ mệnh - Tầm nhìn</a>
-            <a href="{% url 'triet_ly_giao_duc' %}">Triết lý giáo dục</a>
-            <a href="{% url 'chuc_nang_nhiem_vu' %}">Chức năng - Nhiệm vụ</a>
-            <a href="{% url 'co_cau_to_chuc' %}">Cơ cấu tổ chức</a>
-            <a href="{% url 'hoi_dong_truong' %}">Hội đồng Trường</a>
-            <a href="{% url 'ban_giam_hieu' %}">Hiệu trưởng & các Phó HT</a>
-            <a href="{% url 'co_so_vat_chat' %}">Cơ sở vật chất</a>
-            <a href="{% url 'tap_chi' %}">Tạp chí</a>
+            <a href="{% url 'article_detail' slug='tong-quan' %}">Tổng quan</a>
+            <a href="{% url 'article_detail' slug='lich_su_hinh_thanh' %}"
+              >Lịch sử hình thành</a
+            >
+            <a href="{% url 'article_detail' slug='su_menh_tam_nhin' %}"
+              >Sứ mệnh - Tầm nhìn</a
+            >
+            <a href="{% url 'article_detail' slug='triet_ly_giao_duc' %}"
+              >Triết lý giáo dục</a
+            >
+            <a href="{% url 'article_detail' slug='chuc_nang_nhiem_vu' %}"
+              >Chức năng - Nhiệm vụ</a
+            >
+            <a href="{% url 'article_detail' slug='co_cau_to_chuc' %}"
+              >Cơ cấu tổ chức</a
+            >
+            <a href="{% url 'article_detail' slug='hoi_dong_truong' %}"
+              >Hội đồng Trường</a
+            >
+            <a href="{% url 'article_detail' slug='ban_giam_hieu' %}"
+              >Hiệu trưởng & các Phó HT</a
+            >
+            <a href="{% url 'article_detail' slug='co_so_vat_chat' %}"
+              >Cơ sở vật chất</a
+            >
+            <a href="{% url 'article_detail' slug='tap_chi' %}">Tạp chí</a>
           </div>
         </div>
         <div class="dropdown">
           <a href="#tuyensinh" class="dropbtn">Tuyển sinh</a>
           <div class="dropdown-content">
-            <a href="#">Đại học chính quy</a>
-            <a href="#">Đào tạo chất lượng cao</a>
-            <a href="#">Vừa làm vừa học</a>
-            <a href="#">Liên kết quốc tế</a>
-            <a href="#">Sau đại học</a>
+            <a href="https://tuyensinh.ut.edu.vn/">Đại học chính quy</a>
+            <a href="https://clc.ut.edu.vn/chuyenmuc/tuyen-sinh/"
+              >Đào tạo chất lượng cao</a
+            >
+            <a href="https://ptc.ut.edu.vn/">Vừa làm vừa học</a>
+            <a href="https://iec.ut.edu.vn/vi/trang-chu/">Liên kết quốc tế</a>
+            <a href="https://sdh.ut.edu.vn/tuyen-sinh/">Sau đại học</a>
           </div>
         </div>
         <div class="dropdown">
           <a href="#daotao" class="dropbtn">Đào tạo</a>
           <div class="dropdown-content">
-            <a href="#">Hệ chính quy</a>
-            <a href="#">Hệ vừa làm vừa học</a>
-            <a href="#">Sau đại học</a>
-            <a href="#">Liên kết quốc tế</a>
-            <a href="#">Đào tạo Chất lượng cao</a>
+            <a href="https://daotao.ut.edu.vn/">Hệ chính quy</a>
+            <a href="https://ptc.ut.edu.vn/">Hệ vừa làm vừa học</a>
+            <a href="https://sdh.ut.edu.vn/">Sau đại học</a>
+            <a href="https://iec.ut.edu.vn/vi/trang-chu/">Liên kết quốc tế</a>
+            <a href="http://clc.ut.edu.vn/">Đào tạo Chất lượng cao</a>
           </div>
         </div>
-        <a href="https://strdd.ut.edu.vn/hoat-dong-khoa-hoc-va-cong-nghe/">Khoa học - Công nghệ</a>
-        <a href="#hoptacquocte">Hợp tác quốc tế</a>
+        <a href="https://strdd.ut.edu.vn/hoat-dong-khoa-hoc-va-cong-nghe/"
+          >Khoa học - Công nghệ</a
+        >
+        <a href="https://strdd.ut.edu.vn/hop-tac-quoc-te/">Hợp tác quốc tế</a>
         <div class="dropdown">
           <a href="#quantridaihoc" class="dropbtn">Quản trị đại học</a>
           <div class="dropdown-content">
-            <a href="#">Hồ sơ đăng ký mở ngành</a>
-            <a href="#">Đảm bảo chất lượng</a>
-            <a href="#">ISO 9001:2015</a>
+            <a href="https://daotao.ut.edu.vn/?mid=52"
+              >Hồ sơ đăng ký mở ngành</a
+            >
+            <a href="https://qm.ut.edu.vn/">Đảm bảo chất lượng</a>
+            <a href="{% url 'article_detail' slug='iso-html' %}"
+              >ISO 9001:2015</a
+            >
             <a href="#">Thông tin HĐGSCS</a>
           </div>
         </div>
-        <a href="#cacdonvi">Các đơn vị</a>
+        <div class="dropdown">
+          <a href="#quantridaihoc" class="dropbtn">Các đơn vị</a>
+          <div class="dropdown-content">
+            <div class="dropdown-item">
+              <a href="#">Đơn vị quản lý đào tạo</a>
+              <div class="sub-dropdown">
+                <a href="#">Khoa Cơ bản</a>
+                <a href="#">Viện CNTT & Điện, điện tử</a>
+                <a href="#">Viện Đường sắt tốc độ cao</a>
+                <a href="#">Viện Kinh tế & phát triển GTVT</a>
+                <a href="#">Viện Hàng hải</a>
+                <a href="#">Viện Cơ khí</a>
+                <a href="#">Viện Xây dựng</a>
+                <a href="#">Viện Ngôn ngữ, KHCT & xã hội</a>
+              </div>
+            </div>
+            <div class="dropdown-item">
+              <a href="#">Đơn vị chức năng</a>
+              <div class="sub-dropdown">
+                <a href="#">Phòng Công tác sinh viên</a>
+                <a href="#">Phòng Đào tạo</a>
+                <a href="#">Phòng TC-HC</a>
+                <a href="#">Phòng Kế hoạch - Tài vụ</a>
+                <a href="#">Phòng KHCN & NCPT</a>
+                <a href="#">Phòng Quản lý dự án & CSVC</a>
+                <a href="#">Phòng Quản lý chất lượng</a>
+                <a href="#">Trung tâm Tư vấn - Tuyển sinh</a>
+                <a href="#">Trung tâm Thông tin - Thư viện</a>
+                <a href="#">Viện Đào tạo Sau đại học</a>
+                <a href="#">Phân hiệu Trường tại Đồng Nai</a>
+              </div>
+            </div>
+            <div class="dropdown-item">
+              <a href="#">Đơn vị dịch vụ - NCPT</a>
+              <div class="sub-dropdown">
+                <a href="#">Tạp chí KHCN và GTVT</a>
+                <a href="#">Trung tâm Dịch vụ & Hỗ trợ SV</a>
+                <a href="#">Viện Nghiên cứu - Đào tạo Đèo Cả</a>
+                <a href="#">TT Nhân lực và HL hàng hải</a>
+                <a href="#">TT NN, CNTT & đào tạo nghiệp vụ</a>
+                <a href="#">Trung tâm Đào tạo thường xuyên</a>
+                <a href="#">Trung tâm Logistics</a>
+                <a href="#">Viện Đào tạo Chất lượng cao</a>
+                <a href="#">Viện Năng lượng & Giao thông</a>
+                <a href="#">Viện Đào tạo & Hợp tác quốc tế</a>
+              </div>
+            </div>
+            <div class="dropdown-item">
+              <a href="#">Đảng - Đoàn thể</a>
+              <div class="sub-dropdown">
+                <a href="#">Đảng bộ</a>
+                <a href="#">Công đoàn</a>
+                <a href="#">Đoàn - Hội sinh viên</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="dropdown">
           <a href="#quantridaihoc" class="dropbtn">Tiện ích</a>
           <div class="dropdown-content">
             <a href="#">RSSWebmail</a>
             <a href="#">Nội bộ CB-GV</a>
-            <a href="#">Nội bộ sinh viên</a>
+            <a href="{% url 'article_detail' slug='noi-bo-sinh-vien' %}"
+              >Nội bộ sinh viên</a
+            >
             <a href="#">Nội bộ học viên</a>
           </div>
         </div>
@@ -90,174 +180,259 @@
       </div>
     </div>
     <!--main content body-->
-    {% block banner_slider %}{% endblock %}
-    {% block content1 %}{% endblock %}
+    {% block banner_slider %}{% endblock %} {% block content2 %}{% endblock %}
+    {% block content1 %}{% endblock %} {% block content3 %}{% endblock %}
+    <!--main content body-->
     {% block tongquan %}{% endblock %}
-    <div class="slider-container-wrapper">
-      <div class="slider-container">
-          <div class="slider-wrapper">
-              <div class="slider-item">
-                  <a href="#">
-                      <img src="{% static 'app/images/content2/enhance.jpg' %}" alt="Image 1">
-                  </a>
-              </div>
-              <div class="slider-item">
-                  <a href="#">
-                      <img src="{% static 'app/images/content2/IAMU.jpg' %}" alt="Image 2">
-                  </a>
-              </div>
-              <div class="slider-item">
-                  <a href="#">
-                      <img src="{% static 'app/images/content2/IEC.jpg' %}" alt="Image 3">
-                  </a>
-              </div>
-              <div class="slider-item">
-                  <a href="#">
-                      <img src="{% static 'app/images/content2/jtst.jpg' %}" alt="Image 4">
-                  </a>
-              </div>
-              <div class="slider-item">
-                  <a href="#">
-                      <img src="{% static 'app/images/content2/logo Bao Giao thong.png' %}" alt="Image 5">
-                  </a>
-              </div>
-              <div class="slider-item">
-                  <a href="#">
-                      <img src="{% static 'app/images/content2/logo.clc.webut.jpg' %}" alt="Image 6">
-                  </a>
-              </div>
-              <div class="slider-item">
-                <a href="#">
-                    <img src="{% static 'app/images/content2/LOGOLIC.png' %}" alt="Image 7">
-                </a>
-            </div>
-            <div class="slider-item">
-              <a href="#">
-                  <img src="{% static 'app/images/content2/logosdh.png' %}" alt="Image 8">
-              </a>
-          </div>
-          <div class="slider-item">
+    <div class="slider-container-wrapper1">
+      <div class="slider-container1">
+        <div class="slider-wrapper1">
+          <div class="slider-item1">
             <a href="#">
-                <img src="{% static 'app/images/content2/PLO(1).jpg' %}" alt="Image 9">
+              <img
+                src="{% static 'app/images/content2/enhance.jpg' %}"
+                alt="Image 1"
+              />
             </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/IAMU.jpg' %}"
+                alt="Image 2"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/IEC.jpg' %}"
+                alt="Image 3"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/jtst.jpg' %}"
+                alt="Image 4"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/logo Bao Giao thong.png' %}"
+                alt="Image 5"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/logo.clc.webut.jpg' %}"
+                alt="Image 6"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/LOGOLIC.png' %}"
+                alt="Image 7"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/logosdh.png' %}"
+                alt="Image 8"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/PLO(1).jpg' %}"
+                alt="Image 9"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/stinet_logo.jpg' %}"
+                alt="Image 10"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/stinet02.jpg' %}"
+                alt="Image 11"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/thanhnien.gif' %}"
+                alt="Image 12"
+              />
+            </a>
+          </div>
+          <div class="slider-item1">
+            <a href="#">
+              <img
+                src="{% static 'app/images/content2/VOH logo.jpg' %}"
+                alt="Image 13"
+              />
+            </a>
+          </div>
         </div>
-        <div class="slider-item">
-          <a href="#">
-              <img src="{% static 'app/images/content2/stinet_logo.jpg' %}" alt="Image 10">
-          </a>
-      </div>
-      <div class="slider-item">
-        <a href="#">
-            <img src="{% static 'app/images/content2/stinet02.jpg' %}" alt="Image 11">
-        </a>
-    </div>
-    <div class="slider-item">
-      <a href="#">
-          <img src="{% static 'app/images/content2/thanhnien.gif' %}" alt="Image 12">
-      </a>
-    </div>
-    <div class="slider-item">
-    <a href="#">
-        <img src="{% static 'app/images/content2/VOH logo.jpg' %}" alt="Image 13">
-    </a>
-    </div>
-          </div>
-          <div class="nav-container">
-              <button class="prev-button" onclick="prevSlide()">&#10094;</button>
-              <button class="next-button" onclick="nextSlide()">&#10095;</button>
-          </div>
+        <div class="nav-container1">
+          <button class="prev-button1" onclick="prevSlide()">&#10094;</button>
+          <button class="next-button1" onclick="nextSlide()">&#10095;</button>
+        </div>
       </div>
     </div>
     <script>
       let currentIndex = 0;
-      const slides = document.querySelectorAll('.slider-item');
+      const slides = document.querySelectorAll(".slider-item1");
       const totalSlides = slides.length;
       const maxTransitions = 8;
       let transitionCount = 0;
-    
+
       function showSlide(index) {
-          const slidesContainer = document.querySelector('.slider-wrapper');
-          const offset = -index * 20;
-          slidesContainer.style.transform = `translateX(${offset}%)`;
+        const slidesContainer = document.querySelector(".slider-wrapper1");
+        const offset = -index * 20;
+        slidesContainer.style.transform = `translateX(${offset}%)`;
       }
-    
+
       function nextSlide() {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          showSlide(currentIndex);
-          transitionCount++;
-          if (transitionCount >= maxTransitions) {
-              currentIndex = 0;
-              transitionCount = 0;
-          }
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+        transitionCount++;
+        if (transitionCount >= maxTransitions) {
+          currentIndex = 0;
+          transitionCount = 0;
+        }
       }
-    
+
       function prevSlide() {
-          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-          showSlide(currentIndex);
-          transitionCount++;
-          if (transitionCount >= maxTransitions) {
-              currentIndex = 0;
-              transitionCount = 0;
-          }
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
+        transitionCount++;
+        if (transitionCount >= maxTransitions) {
+          currentIndex = 0;
+          transitionCount = 0;
+        }
       }
-    
+
       const slideInterval = setInterval(nextSlide, 3000);
       showSlide(currentIndex);
-    
-      document.querySelector('.next-btn').addEventListener('click', nextSlide);
-      document.querySelector('.prev-btn').addEventListener('click', prevSlide);
-    </script>    
+
+      document
+        .querySelector(".next-button1")
+        .addEventListener("click", nextSlide);
+      document
+        .querySelector(".prev-button1")
+        .addEventListener("click", prevSlide);
+    </script>
+
     <!--footer-->
     <footer>
       <div class="footer-content">
-        <h3>TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI THÀNH PHỐ HỒ CHÍ MINH</h3>   
+        <h3>TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI THÀNH PHỐ HỒ CHÍ MINH</h3>
         <p>
-            <img src="{% static 'app/images/Footer_img/dia-chi.png' %}" alt="Location" style="width: 20px; height: 20px; vertical-align: middle;">
-            Cơ sở 1: Số 2, Đường Võ Oanh, P.25, Q. Bình Thạnh, Thành Phố Hồ Chí Minh
+          <img
+            src="{% static 'app/images/Footer_img/dia-chi.png' %}"
+            alt="Location"
+            style="width: 20px; height: 20px; vertical-align: middle"
+          />
+          Cơ sở 1: Số 2, Đường Võ Oanh, P.25, Q. Bình Thạnh, Thành Phố Hồ Chí
+          Minh
         </p>
         <p>
-            <img src="{% static 'app/images/Footer_img/dia-chi.png' %}" alt="Location" style="width: 20px; height: 20px; vertical-align: middle;">
-            Cơ sở 2: Số 10 đường số 12, KP3, P. An Khánh, TP. Thủ Đức, TP. HCM
+          <img
+            src="{% static 'app/images/Footer_img/dia-chi.png' %}"
+            alt="Location"
+            style="width: 20px; height: 20px; vertical-align: middle"
+          />
+          Cơ sở 2: Số 10 đường số 12, KP3, P. An Khánh, TP. Thủ Đức, TP. HCM
         </p>
         <p>
-            <img src="{% static 'app/images/Footer_img/dia-chi.png' %}" alt="Location" style="width: 20px; height: 20px; vertical-align: middle;">
-            Cơ sở 3: Số 70 đường Tô Ký, phường Tân Chánh Hiệp, quận 12, TP. Hồ Chí Minh
+          <img
+            src="{% static 'app/images/Footer_img/dia-chi.png' %}"
+            alt="Location"
+            style="width: 20px; height: 20px; vertical-align: middle"
+          />
+          Cơ sở 3: Số 70 đường Tô Ký, phường Tân Chánh Hiệp, quận 12, TP. Hồ Chí
+          Minh
         </p>
         <p>
-            <img src="{% static 'app/images/Footer_img/di-dong.png' %}" alt="Phone" style="width: 20px; height: 20px; vertical-align: middle;">
-            Tuyển sinh: 028 3512 8986
+          <img
+            src="{% static 'app/images/Footer_img/di-dong.png' %}"
+            alt="Phone"
+            style="width: 20px; height: 20px; vertical-align: middle"
+          />
+          Tuyển sinh: 028 3512 8986
         </p>
         <p>
-            <img src="{% static 'app/images/Footer_img/di-dong.png' %}" alt="Phone" style="width: 20px; height: 20px; vertical-align: middle;">
-            Phòng Đào tạo: 0283 8992862
+          <img
+            src="{% static 'app/images/Footer_img/di-dong.png' %}"
+            alt="Phone"
+            style="width: 20px; height: 20px; vertical-align: middle"
+          />
+          Phòng Đào tạo: 0283 8992862
         </p>
         <p>
-            <img src="{% static 'app/images/Footer_img/fax.png' %}" alt="Phone" style="width: 20px; height: 20px; vertical-align: middle;">
-            Văn thư: 028 3899 1373
+          <img
+            src="{% static 'app/images/Footer_img/fax.png' %}"
+            alt="Phone"
+            style="width: 20px; height: 20px; vertical-align: middle"
+          />
+          Văn thư: 028 3899 1373
         </p>
         <p>
-            <img src="{% static 'app/images/Footer_img/mail.png' %}" alt="Email" style="width: 20px; height: 20px; vertical-align: middle;">
-            Email: ut-hcmc@ut.edu.vn
+          <img
+            src="{% static 'app/images/Footer_img/mail.png' %}"
+            alt="Email"
+            style="width: 20px; height: 20px; vertical-align: middle"
+          />
+          Email: ut-hcmc@ut.edu.vn
         </p>
       </div>
       <div class="social-media">
-          <a href="https://www.facebook.com/ut.edu.vn">
-              <img src="https://ut.edu.vn/themes/ut/images/facebook.png" alt="Facebook" />
-          </a>
-          <a href="https://www.tiktok.com/@yourusername">
-              <img src="data:image/png;base64,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" alt="TikTok" />
-          </a>
-          <a href="https://www.youtube.com/c/yourchannel">
-              <img src="https://ut.edu.vn/themes/ut/images/youtube.png" alt="YouTube" />
-          </a>
+        <a href="https://www.facebook.com/ut.edu.vn">
+          <img
+            src="https://ut.edu.vn/themes/ut/images/facebook.png"
+            alt="Facebook"
+          />
+        </a>
+        <a href="https://www.tiktok.com/@yourusername">
+          <img
+            src="data:image/png;base64,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"
+            alt="TikTok"
+          />
+        </a>
+        <a href="https://www.youtube.com/c/yourchannel">
+          <img
+            src="https://ut.edu.vn/themes/ut/images/youtube.png"
+            alt="YouTube"
+          />
+        </a>
       </div>
       <div class="visit-counter">
-          <strong>Số Lượt Truy Cập Trang Web </strong> <span id="visitCount">0</span>
+        <strong>Số Lượt Truy Cập Trang Web </strong>
+        <span id="visitCount">0</span>
       </div>
       <div class="copyright">
         <p>&copy; Bản quyền 2014. Trường Đại học Giao thông vận tải TP. HCM.</p>
-    </div>
-  </footer>  
+      </div>
+    </footer>
     <!--footer-->
     <script src="{% static 'app/js/scripts.js' %}"></script>
     <script src="{% static 'app/js/menu.js' %}"></script>

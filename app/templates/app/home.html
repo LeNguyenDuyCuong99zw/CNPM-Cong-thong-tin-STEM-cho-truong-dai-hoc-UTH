@@ -1,39 +1,12 @@
-{% extends 'app/base.html' %} 
-{% load static %}
- {% block banner_slider %}
+{% extends 'app/base.html' %} {% load static %} {% block banner_slider %}
 <div class="content">
   <div class="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="{% static 'app/images/trains_slide/trains1.jpg' %}"
-          alt="Image 1"
-        />
+      {% for image in carousel_images %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" />
       </div>
-      <div class="carousel-item">
-        <img
-          src="{% static 'app/images/trains_slide/trains6.png' %}"
-          alt="Image 2"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="{% static 'app/images/trains_slide/trains3.png' %}"
-          alt="Image 3"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="{% static 'app/images/trains_slide/trains4.jpg' %}"
-          alt="Image 4"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="{% static 'app/images/trains_slide/trains5.jpg' %}"
-          alt="Image 5"
-        />
-      </div>
+      {% endfor %}
     </div>
     <button class="carousel-control-prev" type="button">
       <span>&lt;</span>
@@ -42,89 +15,168 @@
       <span>&gt;</span>
     </button>
     <div class="carousel-indicators">
-      <button class="active"></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
+      {% for image in carousel_images %}
+      <button class="{% if forloop.first %}active{% endif %}"></button>
+      {% endfor %}
     </div>
   </div>
 </div>
-{% endblock banner_slider %} {% block content1 %}
-<div class="vertical-menu2">
-  <div class="dropdown4">
-    <button class="dropbtn4">LIÊN KẾT KHÁC</button>
-    <div class="dropdown-content4">
-      <a href="#">Đảng cộng sản Việt Nam</a>
-      <a href="#">Chính phủ</a>
-      <a href="#">Bộ Giao thông vận tải</a>
-      <a href="#">Bộ Giáo dục & Đào tạo</a>
-      <a href="#">Bộ Kế hoạch & Đầu tư</a>
-      <a href="#">Bộ Xây dựng</a>
-      <a href="#">Bộ Tài chính</a>
-      <a href="#">Bộ Lao động - TB & XH</a>
-      <a href="#">Bộ Khoa học & Công nghệ</a>
-      <a href="#">Luật Việt Nam</a>
-      <a href="#">UBND TP.HCM</a>
-      <a href="#">BHXH TP.HCM</a>
-      <a href="#">Các trường ĐH</a>
-      <div class="dropdown-content-inner4">
-        <a href="#">ĐH Hàng hải</a>
-        <a href="#">ĐH Quốc gia Hà Nội</a>
-        <a href="#">ĐH GTVT Hà Nội</a>
-        <a href="#">ĐH Quốc gia TP.HCM</a>
-        <a href="#">ĐH Bách khoa TP.HCM</a>
-        <a href="#">ĐH Sư phạm kỹ thuật TP.HCM</a>
+{% endblock banner_slider %} {% block content2 %}
+<div class="menu-wrapper">
+  <div class="menu_6">
+    <a href="#" class="menu-item_6"> TIN TỨC - HOẠT ĐỘNG </a>
+    <a href="https://vanbang.ut.edu.vn/tracuu/" class="menu-item_6">
+      TRA CỨU VĂN BẰNG
+    </a>
+    <a href="{% url 'support' %}" class="menu-item_6"> HỖ TRỢ </a>
+    <a href="#" class="menu-item_6"> TUYỂN SINH SAU ĐẠI HỌC </a>
+    <a href="https://portal.ut.edu.vn" class="menu-item_6"> CỔNG THÔNG TIN </a>
+  </div>
+</div>
+{% endblock %} {% block content1 %}
+<div class="main-content-amin6">
+  <div class="wrapper6">
+    <div class="container6">
+      <div class="video5">
+        <div class="video6">
+          <iframe
+            width="100%"
+            height="240"
+            src="https://www.youtube.com/embed/g-g5l-4iaYU"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <button
+          class="button6"
+          onclick="window.location.href='https://www.youtube.com/watch?v=g-g5l-4iaYU'"
+        >
+          Giới thiệu Đại học Giao Thông Vận Tải TP.HCM
+        </button>
+      </div>
+      <div class="left-sections6">
+        <div class="row6">
+          <div class="section6">
+            <a href="link_to_journal_of_science">
+              <img
+                src="{% static 'app/images/contentmain/tapchikhoahoc.jpg' %}"
+                alt="Journal of Science"
+              />
+              <div class="title6">TẠP CHÍ KHOA HỌC</div>
+            </a>
+          </div>
+          <div class="section6">
+            <a href="link_to_scholarships">
+              <img
+                src="{% static 'app/images/contentmain/hocbong.webp' %}"
+                alt="Scholarships"
+              />
+              <div class="title6">HỌC BỔNG</div>
+            </a>
+          </div>
+        </div>
+        <div class="row6">
+          <div class="section6">
+            <a href="link_to_admission_news">
+              <img
+                src="{% static 'app/images/contentmain/tuyensin.jpg' %}"
+                alt="Admission News"
+              />
+              <div class="title6">TIN TUYỂN SINH</div>
+            </a>
+          </div>
+          <div class="section6">
+            <a href="link_to_library">
+              <img
+                src="{% static 'app/images/contentmain/thuvien.jpg' %}"
+                alt="Library"
+              />
+              <div class="title6">THƯ VIỆN</div>
+            </a>
+          </div>
+          <div class="section6">
+            <a href="link_to_facilities">
+              <img
+                src="{% static 'app/images/contentmain/csvc.jpg' %}"
+                alt="Facilities"
+              />
+              <div class="title6">CƠ SỞ VẬT CHẤT</div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="vertical-menu1">
-  <a href="#">
-    <img
-      src="{% static 'app/images/contentleft/CongTacTuyenGiao.jpg' %}"
-      alt="TUYỂN SINH"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="{% static 'app/images/contentleft/CongTacTuyenGiao.jpg' %}"
-      alt="CÔNG TÁC TUYÊN GIÁO"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="{% static 'app/images/contentleft/CongTacTuyenGiao.jpg' %}"
-      alt="HỌC BỔNG - VIỆC LÀM"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="{% static 'app/images/contentleft/CongTacTuyenGiao.jpg' %}"
-      alt="TRA CỨU VĂN BẰNG"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="{% static 'app/images/contentleft/CongTacTuyenGiao.jpg' %}"
-      alt="HỘI ĐỒNG GIÁO SƯ CƠ SỞ"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="{% static 'app/images/contentleft/CongTacTuyenGiao.jpg' %}"
-      alt="NỘI BỘ CB - NV"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="{% static 'app/images/contentleft/CongTacTuyenGiao.jpg' %}"
-      alt="THƯ VIỆN"
-    />
-  </a>
-  <a href="#">
-    <img src="{% static 'app/images/contentleft/Support.jpg' %}" alt="HỖ TRỢ" />
-  </a>
+{% endblock content1 %} {% block content3 %}
+<div class="content-wrapper9">
+  <div class="left-content">
+    <div class="news-container9">
+      <div class="news-section9">
+        <a href="{% url 'news_pages' %}" class="contenttin">Tin Tức Sự Kiện</a>
+        <div class="news-list9">
+          {% for page in news_pages|slice:":5" %}
+          <div class="news-item9">
+            <a href="{% url 'news_detail' slug=page.slug %}" class="news-link9">
+              <div class="news-thumbnail-container9">
+                {% if page.image %}
+                <img
+                  src="{{ page.image.url }}"
+                  alt="{{ page.name }}"
+                  class="news-thumbnail9"
+                />
+                {% endif %}
+              </div>
+            </a>
+            <div class="news-title-container9">
+              <div class="news-title9">{{ page.name }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="view-more">
+          <a href="{% url 'news_pages' %}" class="view-more-button">Xem thêm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-content">
+    <div class="news-container9">
+      <div class="news-section9">
+        <a href="{% url 'announcements' %}" class="contenttin1"
+          >Thông Báo Mới</a
+        >
+        <div class="news-list9">
+          {% for page in announcements|slice:":5" %}
+          <div class="news-item9">
+            <a
+              href="{% url 'announcement_detail' slug=page.slug %}"
+              class="news-link9"
+            >
+              <div class="news-container811">
+                <div class="news-title-container9811">
+                  <div class="button-container811">
+                    <button class="round-button811">
+                      <img
+                        src="{% static 'app/images/thongbaologo.png' %}"
+                        alt="Image"
+                      />
+                    </button>
+                  </div>
+                  <div class="news-title9811">{{ page.name }}</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="view-more">
+          <a href="{% url 'announcements' %}" class="view-more-button"
+            >Xem thêm</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{% endblock content1 %}
-
+{% endblock %}

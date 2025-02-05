@@ -1,0 +1,92 @@
+{% extends 'app/base.html' %} {% load static %} {% block content1 %}
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách Tin Tức</title>
+    <link rel="stylesheet" href="{% static 'app/css/styles.css' %}" />
+    <style>
+      .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+      .pagination a {
+        margin: 0 5px;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: black;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .pagination a:hover {
+        background-color: #ddd;
+      }
+      .pagination a.active {
+        background-color: #292b2d;
+        color: white;
+        border: 1px solid #292b2d;
+      }
+    </style>
+  </head>
+  <body class="main-gh">
+    <div class="container1">
+      <div class="header-content">
+        <a href="{% url 'home' %}">
+          <img src="{% static 'app/images/home.png' %}" align="left" />Trang chủ
+        </a>
+        <a>/</a><a href="{% url 'news_pages' %}">Tin tức sự kiện</a>
+      </div>
+      <div class="content-wrapper">
+        <div class="custom-heading-1"><b>Tin tức sự kiện</b></div>
+        <div class="news-list8">
+          {% for page in news_pages %}
+          <a href="{% url 'news_detail' slug=page.slug %}" class="news-link8">
+            <div class="news-title81" style="font-size: 15px">
+              {{ page.name }}
+            </div>
+          </a>
+          <div class="news-item8">
+            <div class="news-thumbnail-container8">
+              {% if page.image %}
+              <img
+                src="{{ page.image.url }}"
+                alt="{{ page.name }}"
+                class="news-thumbnail8"
+              />
+              {% endif %}
+            </div>
+            <div class="news-title8" style="font-size: 12px">
+              {{ page.content }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="pagination">
+          <span class="step-links">
+            {% if news_pages.has_previous %}
+            <a href="?page=1">&laquo; đầu</a>
+            <a href="?page={{ news_pages.previous_page_number }}">trước</a>
+            {% endif %}
+
+            <!-- Remove this span -->
+            <!-- <span class="current">
+              Trang {{ news_pages.number }} của {{
+              news_pages.paginator.num_pages }}.
+            </span> -->
+
+            {% if news_pages.has_next %}
+            <a href="?page={{ news_pages.next_page_number }}">sau</a>
+            <a href="?page={{ news_pages.paginator.num_pages }}"
+              >cuối &raquo;</a
+            >
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock %}

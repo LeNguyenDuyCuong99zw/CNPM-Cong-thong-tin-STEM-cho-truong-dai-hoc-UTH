@@ -1,121 +1,314 @@
-{% extends 'app/base.html' %}
-{% load static %}
-
-
-{% block tongquan %}
+{% extends 'app/base.html' %} {% load static %} {% block tongquan %}
 <body class="main-gh">
   <div class="container1">
     <div class="header-content">
-      <a href="{% url 'home' %}"><img src="{% static 'app/images/home.png' %}" align="left">Trang chủ</a> <a>/</a><a href="{% url 'tong_quan' %}">Tổng quan</a>
-      
+      <a href="{% url 'home' %}"
+        ><img src="{% static 'app/images/home.png' %}" align="left" />Trang
+        chủ</a
+      >
+      <a>/</a><a href="{% url 'tong_quan' %}">Tổng quan</a>
     </div>
     <div class="content-wrapper">
-      <div class="custom-heading-1">Tổng quan về Trường ĐH Giao thông vận tải TP.HCM</div>
-      <p>Trường Đại học Giao thông vận tải TP. Hồ Chí Minh trực thuộc Bộ Giao thông vận tải, là trường đại học đa ngành thuộc lĩnh vực giao thông vận tải lớn nhất phía Nam Việt Nam. Trường có nhiệm vụ đào tạo nguồn nhân lực cho lĩnh vực giao thông vận tải như hàng hải, hàng không, đường bộ, đường sông, đường sắt.</p>
+      <div class="custom-heading-1">
+        Tổng quan về Trường ĐH Giao thông vận tải TP.HCM
+      </div>
+      <p>
+        Trường Đại học Giao thông vận tải TP. Hồ Chí Minh trực thuộc Bộ Giao
+        thông vận tải, là trường đại học đa ngành thuộc lĩnh vực giao thông vận
+        tải lớn nhất phía Nam Việt Nam. Trường có nhiệm vụ đào tạo nguồn nhân
+        lực cho lĩnh vực giao thông vận tải như hàng hải, hàng không, đường bộ,
+        đường sông, đường sắt.
+      </p>
 
       <div class="custom-heading-2">I. HOẠT ĐỘNG ĐÀO TẠO</div>
-      <p><i>Quy mô đào tạo hiện nay: trên 21.000 sinh viên, học viên cho các trình độ và hình thức đào tạo.</i></p>
-      <p><i>Hình thức đào tạo: chính quy, vừa làm vừa học, liên thông, văn bằng 2; với các trình độ đào tạo đại học, thạc sĩ, tiến sĩ; các chương trình đào tạo chất lượng cao, chương trình liên kết đào tạo với nước ngoài; các khóa cập nhật kiến thức, nâng cao trình độ, huấn luyện nghiệp vụ theo quy định.</i></p>
+      <p>
+        <i
+          >Quy mô đào tạo hiện nay: trên 21.000 sinh viên, học viên cho các
+          trình độ và hình thức đào tạo.</i
+        >
+      </p>
+      <p>
+        <i
+          >Hình thức đào tạo: chính quy, vừa làm vừa học, liên thông, văn bằng
+          2; với các trình độ đào tạo đại học, thạc sĩ, tiến sĩ; các chương
+          trình đào tạo chất lượng cao, chương trình liên kết đào tạo với nước
+          ngoài; các khóa cập nhật kiến thức, nâng cao trình độ, huấn luyện
+          nghiệp vụ theo quy định.</i
+        >
+      </p>
 
       <div class="custom-heading-3">1. Đào tạo trình độ Tiến sỹ</div>
-      <p>Gồm các ngành: Kỹ thuật cơ khí động lực, Kỹ thuật điều khiển và tự động hóa, Kỹ thuật xây dựng công trình giao thông, Tổ chức và quản lý vận tải, Khoa học hàng hải.</p>
+      <p>
+        Gồm các ngành: Kỹ thuật cơ khí động lực, Kỹ thuật điều khiển và tự động
+        hóa, Kỹ thuật xây dựng công trình giao thông, Tổ chức và quản lý vận
+        tải, Khoa học hàng hải.
+      </p>
 
       <div class="custom-heading-3">2. Đào tạo trình độ Thạc sỹ</div>
-      <p>Gồm các ngành: Khoa học máy tính, Kỹ thuật cơ khí động lực, Kỹ thuật tàu thuỷ, Kỹ thuật ô tô, Kỹ thuật điện, Kỹ thuật điều khiển và tự động hóa, Kỹ thuật xây dựng, Kỹ thuật xây dựng công trình thuỷ, Kỹ thuật xây dựng công trình giao thông, Quản lý xây dựng, Tổ chức và quản lý vận tải, Khoa học hàng hải.</p>
-      <p>- Thạc sĩ Logistics (chương trình Liên kết đào tạo cấp song bằng với ĐH Tongmyong Hàn Quốc, học hoàn toàn tại Việt Nam)</p>
+      <p>
+        Gồm các ngành: Khoa học máy tính, Kỹ thuật cơ khí động lực, Kỹ thuật tàu
+        thuỷ, Kỹ thuật ô tô, Kỹ thuật điện, Kỹ thuật điều khiển và tự động hóa,
+        Kỹ thuật xây dựng, Kỹ thuật xây dựng công trình thuỷ, Kỹ thuật xây dựng
+        công trình giao thông, Quản lý xây dựng, Tổ chức và quản lý vận tải,
+        Khoa học hàng hải.
+      </p>
+      <p>
+        - Thạc sĩ Logistics (chương trình Liên kết đào tạo cấp song bằng với ĐH
+        Tongmyong Hàn Quốc, học hoàn toàn tại Việt Nam)
+      </p>
 
       <div class="custom-heading-3">3. Đào tạo trình độ đại học</div>
       <div class="custom-heading-4">3.1 Đại học chính quy</div>
-      <p>Gồm các ngành: Công nghệ thông tin; Logistics và quản lý chuỗi cung ứng; Mạng máy tính và truyền thông dữ liệu; Kỹ thuật cơ khí; Kỹ thuật tàu thuỷ; Kỹ thuật ô tô; Kỹ thuật điện; Kỹ thuật điện tử - viễn thông; Kỹ thuật điều khiển và tự động hoá; Kỹ thuật môi trường; Kỹ thuật xây dựng; Kỹ thuật xây dựng công trình thuỷ; Kỹ thuật xây dựng công trình giao thông; Kinh tế xây dựng; Khai thác vận tải; Kinh tế vận tải; Khoa học hàng hải, Ngôn ngữ Anh...</p>
+      <p>
+        Gồm các ngành: Công nghệ thông tin; Logistics và quản lý chuỗi cung ứng;
+        Mạng máy tính và truyền thông dữ liệu; Kỹ thuật cơ khí; Kỹ thuật tàu
+        thuỷ; Kỹ thuật ô tô; Kỹ thuật điện; Kỹ thuật điện tử - viễn thông; Kỹ
+        thuật điều khiển và tự động hoá; Kỹ thuật môi trường; Kỹ thuật xây dựng;
+        Kỹ thuật xây dựng công trình thuỷ; Kỹ thuật xây dựng công trình giao
+        thông; Kinh tế xây dựng; Khai thác vận tải; Kinh tế vận tải; Khoa học
+        hàng hải, Ngôn ngữ Anh...
+      </p>
 
-      <div class="custom-heading-4">3.2. Đại học chương trình liên kết đào tạo nước ngoài</div>
-      <p>- Quản lý Cảng và Logistics (chương trình liên kết đào tạo với trường Đại học Tongmyong, Hàn Quốc); Logistics và Quản lý chuỗi cung ứng (chương trình liên kết đào tạo với trường Đại học Quốc gia Hàng hải và Hải dương Hàn Quốc); Công nghệ thông tin (chương trình liên kết đào tạo với Đại học Tongmyong Hàn Quốc); Công nghệ thông tin (chương trình liên kết đào tạo với Đại học Australian Catholic University, Úc)</p>
+      <div class="custom-heading-4">
+        3.2. Đại học chương trình liên kết đào tạo nước ngoài
+      </div>
+      <p>
+        - Quản lý Cảng và Logistics (chương trình liên kết đào tạo với trường
+        Đại học Tongmyong, Hàn Quốc); Logistics và Quản lý chuỗi cung ứng
+        (chương trình liên kết đào tạo với trường Đại học Quốc gia Hàng hải và
+        Hải dương Hàn Quốc); Công nghệ thông tin (chương trình liên kết đào tạo
+        với Đại học Tongmyong Hàn Quốc); Công nghệ thông tin (chương trình liên
+        kết đào tạo với Đại học Australian Catholic University, Úc)
+      </p>
 
       <div class="custom-heading-4">3.3 Đại học vừa làm vừa học</div>
-      <p>Gồm các ngành: Công nghệ thông tin; Kỹ thuật cơ khí; Kỹ thuật điện; Kỹ thuật xây dựng; Kỹ thuật xây dựng công trình giao thông; Kinh tế xây dựng; Kinh tế vận tải; Khoa học hàng hải.</p>
+      <p>
+        Gồm các ngành: Công nghệ thông tin; Kỹ thuật cơ khí; Kỹ thuật điện; Kỹ
+        thuật xây dựng; Kỹ thuật xây dựng công trình giao thông; Kinh tế xây
+        dựng; Kinh tế vận tải; Khoa học hàng hải.
+      </p>
 
-      <div class="custom-heading-2">II. HOẠT ĐỘNG NGHIÊN CỨU KHOA HỌC VÀ CHUYỂN GIAO CÔNG NGHỆ</div>
-      <p>Công tác nghiên cứu khoa học đã được nhà trường quan tâm và đầu tư đúng mức. Nhà trường tổ chức thực hiện các chương trình, đề tài, dự án nghiên cứu, ứng dụng khoa học công nghệ, hợp tác liên doanh liên kết với các tổ chức trong và ngoài nước thực hiện các dự án khoa học nhằm ứng dụng công nghệ mới.</p>
-      <p>Chính vì thế phong trào nghiên cứu khoa học của trường ngày càng khởi sắc, số lượng đề tài ngày một tăng. Nhiều hội thảo khoa học quốc tế được tổ chức tại trường tạo cơ hội cho cán bộ giáo viên trong toàn trường có cơ hội tiếp cận cọ xát với công nghệ hiện đại tiên tiến, các thành tựu của thế giới và đặt nền móng cho những công trình nghiên cứu của họ sau này. Nhiều đề tài, đề án nghiên cứu khoa học cấp nhà nước, cấp Bộ đã được nghiệm thu và ứng dụng vào thực tế.</p>
-      <p>Phong trào nghiên cứu khoa học trong sinh viên cũng có nhiều kết quả đáng khích lệ. Cuộc thi “Ý tưởng sáng tạo sinh viên giao thông vận tải” đã trở thành cuộc thi truyền thống hàng năm và thu hút nhiều đề tài, ý tưởng sáng tạo. Ngoài ra, sinh viên trường đạt nhiều giải thưởng tay nghề ASEAN, các giải Eureka của thành phố Hồ Chí Minh, giải Vifotec cấp Quốc gia, các giải thưởng trong kỳ thi Olympic Quốc gia.</p>
+      <div class="custom-heading-2">
+        II. HOẠT ĐỘNG NGHIÊN CỨU KHOA HỌC VÀ CHUYỂN GIAO CÔNG NGHỆ
+      </div>
+      <p>
+        Công tác nghiên cứu khoa học đã được nhà trường quan tâm và đầu tư đúng
+        mức. Nhà trường tổ chức thực hiện các chương trình, đề tài, dự án nghiên
+        cứu, ứng dụng khoa học công nghệ, hợp tác liên doanh liên kết với các tổ
+        chức trong và ngoài nước thực hiện các dự án khoa học nhằm ứng dụng công
+        nghệ mới.
+      </p>
+      <p>
+        Chính vì thế phong trào nghiên cứu khoa học của trường ngày càng khởi
+        sắc, số lượng đề tài ngày một tăng. Nhiều hội thảo khoa học quốc tế được
+        tổ chức tại trường tạo cơ hội cho cán bộ giáo viên trong toàn trường có
+        cơ hội tiếp cận cọ xát với công nghệ hiện đại tiên tiến, các thành tựu
+        của thế giới và đặt nền móng cho những công trình nghiên cứu của họ sau
+        này. Nhiều đề tài, đề án nghiên cứu khoa học cấp nhà nước, cấp Bộ đã
+        được nghiệm thu và ứng dụng vào thực tế.
+      </p>
+      <p>
+        Phong trào nghiên cứu khoa học trong sinh viên cũng có nhiều kết quả
+        đáng khích lệ. Cuộc thi “Ý tưởng sáng tạo sinh viên giao thông vận tải”
+        đã trở thành cuộc thi truyền thống hàng năm và thu hút nhiều đề tài, ý
+        tưởng sáng tạo. Ngoài ra, sinh viên trường đạt nhiều giải thưởng tay
+        nghề ASEAN, các giải Eureka của thành phố Hồ Chí Minh, giải Vifotec cấp
+        Quốc gia, các giải thưởng trong kỳ thi Olympic Quốc gia.
+      </p>
 
       <div class="custom-heading-2">III. HOẠT ĐỘNG HỢP TÁC QUỐC TẾ</div>
-      <p>Luôn chủ động đẩy mạnh hoạt động đối ngoại với các đối tác nước ngoài, Trường coi hoạt động hợp tác quốc tế là chìa khóa thu hút nguồn vốn cho hoạt động đào tạo, chuyển giao và đổi mới công nghệ.</p>
-      <p>Ngoài những dự án đã và đang được triển khai thành công, Trường đã có mối quan hệ hợp tác tốt đẹp với nhiều trường, viện quốc tế như các trường đại học Vương quốc Anh, Viện Hàn lâm Khoa học Liên bang Nga, đại học Hàng hải Hà Lan, Úc; Đại học cầu đường Đài Loan, Nhật Bản, Trung Quốc và các tổ chức phi chính phủ khác…</p>
-      <p>Trường Đại học Giao thông vận tải TP. HCM là thành viên của các tổ chức sau:</p>
+      <p>
+        Luôn chủ động đẩy mạnh hoạt động đối ngoại với các đối tác nước ngoài,
+        Trường coi hoạt động hợp tác quốc tế là chìa khóa thu hút nguồn vốn cho
+        hoạt động đào tạo, chuyển giao và đổi mới công nghệ.
+      </p>
+      <p>
+        Ngoài những dự án đã và đang được triển khai thành công, Trường đã có
+        mối quan hệ hợp tác tốt đẹp với nhiều trường, viện quốc tế như các
+        trường đại học Vương quốc Anh, Viện Hàn lâm Khoa học Liên bang Nga, đại
+        học Hàng hải Hà Lan, Úc; Đại học cầu đường Đài Loan, Nhật Bản, Trung
+        Quốc và các tổ chức phi chính phủ khác…
+      </p>
+      <p>
+        Trường Đại học Giao thông vận tải TP. HCM là thành viên của các tổ chức
+        sau:
+      </p>
       <ul>
-        <li>Thành viên Hiệp hội các Trường Đào tạo và Huấn luyện Hàng hải khu vực Châu Á – Thái Bình Dương (AMETIAP), nay là Hiệp hội Đào tạo và Huấn luyện Hàng hải toàn cầu (GlobalMET);</li>
+        <li>
+          Thành viên Hiệp hội các Trường Đào tạo và Huấn luyện Hàng hải khu vực
+          Châu Á – Thái Bình Dương (AMETIAP), nay là Hiệp hội Đào tạo và Huấn
+          luyện Hàng hải toàn cầu (GlobalMET);
+        </li>
         <li>Thành viên Hiệp hội quốc tế các Trường Đại học Hàng hải (IAMU);</li>
         <li>Thành viên Hiệp hội quốc tế các trường Đại học (IAU);</li>
-        <li>Thành viên Diễn đàn các trường Đại học Hàng hải và Nghề cá Châu Á (AMFUF);</li>
-        <li>Thành viên Diễn đàn Hiệu trưởng các trường Đại học Châu Á (AUPF);</li>
+        <li>
+          Thành viên Diễn đàn các trường Đại học Hàng hải và Nghề cá Châu Á
+          (AMFUF);
+        </li>
+        <li>
+          Thành viên Diễn đàn Hiệu trưởng các trường Đại học Châu Á (AUPF);
+        </li>
       </ul>
 
-      <div class="custom-heading-2">IV. HOẠT ĐỘNG ĐẢM BẢO VÀ KIỂM ĐỊNH CHẤT LƯỢNG ĐÀO TẠO</div>
-      <p>Trường Đại học Giao thông vận tải TP.HCM sớm xác định một trong những công tác trọng tâm của giáo dục- đào tạo là công tác Đảm bảo chất lượng và Kiểm định chất lượng. Ngày 27/3/2017, Trường được Trung tâm kiểm định chất lượng giáo dục (ĐH Quốc gia TP.HCM) đánh giá và trao chứng nhận đạt chuẩn chất lượng cấp cơ sở giáo dục.</p>
-      <p>Từ tháng 10/2019, Nhà trường chính thức trở thành thành viên liên kết của mạng lưới các trường đại học hàng đầu của khu vực Đông Nam Á (ASEAN University Network – Quality Assurance viết tắt là AUN-QA). Nhiều chương trình đào tạo của Trường đạt tiêu chuẩn chất lượng giáo dục do Bộ trưởng Bộ Giáo dục và Đào tạo ban hành.</p>
-      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+      <div class="custom-heading-2">
+        IV. HOẠT ĐỘNG ĐẢM BẢO VÀ KIỂM ĐỊNH CHẤT LƯỢNG ĐÀO TẠO
+      </div>
+      <p>
+        Trường Đại học Giao thông vận tải TP.HCM sớm xác định một trong những
+        công tác trọng tâm của giáo dục- đào tạo là công tác Đảm bảo chất lượng
+        và Kiểm định chất lượng. Ngày 27/3/2017, Trường được Trung tâm kiểm định
+        chất lượng giáo dục (ĐH Quốc gia TP.HCM) đánh giá và trao chứng nhận đạt
+        chuẩn chất lượng cấp cơ sở giáo dục.
+      </p>
+      <p>
+        Từ tháng 10/2019, Nhà trường chính thức trở thành thành viên liên kết
+        của mạng lưới các trường đại học hàng đầu của khu vực Đông Nam Á (ASEAN
+        University Network – Quality Assurance viết tắt là AUN-QA). Nhiều chương
+        trình đào tạo của Trường đạt tiêu chuẩn chất lượng giáo dục do Bộ trưởng
+        Bộ Giáo dục và Đào tạo ban hành.
+      </p>
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
         <img
-            src="{% static 'app/images/gioithieu/tongquan/CT KTVT.png' %}"
-            alt="Image 1"
-            style="max-width: 80%; height: auto; border-radius: 8px;" 
+          src="{% static 'app/images/gioithieu/tongquan/CT KTVT.png' %}"
+          alt="Image 1"
+          style="max-width: 80%; height: auto; border-radius: 8px"
         />
-    </div>
-    <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-      <img
+      </div>
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
+        <img
           src="{% static 'app/images/gioithieu/tongquan/CT KTXD.png' %}"
           alt="Image 1"
-          style="max-width: 80%; height: auto; border-radius: 8px;" 
-      />
-  </div>
-  <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-    <img
-        src="{% static 'app/images/gioithieu/tongquan/CT Mang may tinh.png' %}"
-        alt="Image 1"
-        style="max-width: 80%; height: auto; border-radius: 8px;" 
-    />
-</div>
-<div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-  <img
-      src="{% static 'app/images/gioithieu/tongquan/GCN CNTT.png' %}"
-      alt="Image 1"
-      style="max-width: 80%; height: auto; border-radius: 8px;" 
-  />
-</div>
-<div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-  <img
-      src="{% static 'app/images/gioithieu/tongquan/GCN LOG.png' %}"
-      alt="Image 1"
-      style="max-width: 80%; height: auto; border-radius: 8px;" 
-  />
-</div>   
-      <p>Ngày 12/9/2022, Trường ĐH Giao thông vận tải TP.HCM (UTH) tiếp tục được Trung tâm Kiểm định chất lượng giáo dục, ĐHQG-HCM cấp Giấy chứng nhận kiểm định chất lượng cơ sở giáo dục đại học chu kỳ 2 theo bộ tiêu chuẩn đánh giá chất lượng được ban hành kèm theo Thông tư số 12/2017/TT-BGDĐT ngày 19/5/2017 của Bộ GDĐT.</p>
-      <p>Đại diện Trung tâm Kiểm định chất lượng giáo dục trao giấy chứng nhận Kiểm định chất lượng CSGD chu kỳ 2 cho Trường.</p>
-      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-        <img
-            src="{% static 'app/images/gioithieu/tongquan/GCN CSGD new(1).png' %}"
-            alt="Image 1"
-            style="max-width: 80%; height: auto; border-radius: 8px;" 
+          style="max-width: 80%; height: auto; border-radius: 8px"
         />
       </div>
-      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
         <img
-            src="{% static 'app/images/gioithieu/tongquan/chung.jpg' %}"
-            alt="Image 1"
-            style="max-width: 80%; height: auto; border-radius: 8px;" 
+          src="{% static 'app/images/gioithieu/tongquan/CT Mang may tinh.png' %}"
+          alt="Image 1"
+          style="max-width: 80%; height: auto; border-radius: 8px"
         />
       </div>
-      <p style="color:blue; text-align: center;font-size: 14px;" >Đại diện Trung tâm Kiểm định chất lượng giáo dục trao giấy chứng nhận Kiểm định chất lượng CSGD chu kỳ 2 cho Trường</p>
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
+        <img
+          src="{% static 'app/images/gioithieu/tongquan/GCN CNTT.png' %}"
+          alt="Image 1"
+          style="max-width: 80%; height: auto; border-radius: 8px"
+        />
+      </div>
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
+        <img
+          src="{% static 'app/images/gioithieu/tongquan/GCN LOG.png' %}"
+          alt="Image 1"
+          style="max-width: 80%; height: auto; border-radius: 8px"
+        />
+      </div>
+      <p>
+        Ngày 12/9/2022, Trường ĐH Giao thông vận tải TP.HCM (UTH) tiếp tục được
+        Trung tâm Kiểm định chất lượng giáo dục, ĐHQG-HCM cấp Giấy chứng nhận
+        kiểm định chất lượng cơ sở giáo dục đại học chu kỳ 2 theo bộ tiêu chuẩn
+        đánh giá chất lượng được ban hành kèm theo Thông tư số 12/2017/TT-BGDĐT
+        ngày 19/5/2017 của Bộ GDĐT.
+      </p>
+      <p>
+        Đại diện Trung tâm Kiểm định chất lượng giáo dục trao giấy chứng nhận
+        Kiểm định chất lượng CSGD chu kỳ 2 cho Trường.
+      </p>
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
+        <img
+          src="{% static 'app/images/gioithieu/tongquan/GCN CSGD new(1).png' %}"
+          alt="Image 1"
+          style="max-width: 80%; height: auto; border-radius: 8px"
+        />
+      </div>
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
+        <img
+          src="{% static 'app/images/gioithieu/tongquan/chung.jpg' %}"
+          alt="Image 1"
+          style="max-width: 80%; height: auto; border-radius: 8px"
+        />
+      </div>
+      <p style="color: blue; text-align: center; font-size: 14px">
+        Đại diện Trung tâm Kiểm định chất lượng giáo dục trao giấy chứng nhận
+        Kiểm định chất lượng CSGD chu kỳ 2 cho Trường
+      </p>
       <div class="custom-heading-2">V. THÀNH TÍCH TIÊU BIỂU</div>
-      <div class="img_anh" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+      <div
+        class="img_anh"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px 0;
+        "
+      >
         <img
-            src="{% static 'app/images/gioithieu/tongquan/Huan chuong hang 3.jpg' %}"
-            alt="Image 1"
-            style="max-width: 100%; height: auto; border-radius: 8px;" 
+          src="{% static 'app/images/gioithieu/tongquan/Huan chuong hang 3.jpg' %}"
+          alt="Image 1"
+          style="max-width: 100%; height: auto; border-radius: 8px"
         />
       </div>
-      <p style="color:blue; text-align: center; font-size: 14px;" >Trường vinh dự đón nhận Huân chương Độc lập hạng ba năm 2013</p>
-      <p style="color:black; font-size: 14px;" ><b><i>* Danh hiệu thi đua</i></b></p>
+      <p style="color: blue; text-align: center; font-size: 14px">
+        Trường vinh dự đón nhận Huân chương Độc lập hạng ba năm 2013
+      </p>
+      <p style="color: black; font-size: 14px">
+        <b><i>* Danh hiệu thi đua</i></b>
+      </p>
       <table class="award-table">
         <thead>
           <tr>
@@ -128,12 +321,18 @@
           <tr>
             <td>2005</td>
             <td>Cờ thi đua Chính phủ</td>
-            <td>Quyết định số 1312/QĐ-TTg ngày 10 tháng 10 năm 2006 của Thủ tướng Chính phủ</td>
+            <td>
+              Quyết định số 1312/QĐ-TTg ngày 10 tháng 10 năm 2006 của Thủ tướng
+              Chính phủ
+            </td>
           </tr>
           <tr>
             <td>2006</td>
             <td>Cờ thi đua Chính phủ</td>
-            <td>Quyết định số 317/QĐ-TTg ngày 16 tháng 03 năm 2007 của Thủ tướng Chính phủ</td>
+            <td>
+              Quyết định số 317/QĐ-TTg ngày 16 tháng 03 năm 2007 của Thủ tướng
+              Chính phủ
+            </td>
           </tr>
           <tr>
             <td>2007</td>
@@ -153,12 +352,18 @@
           <tr>
             <td>2010</td>
             <td>Cờ thi đua Chính phủ</td>
-            <td>Quyết định số 206/QĐ-TTg ngày 12 tháng 02 năm 2011 của Thủ tướng Chính phủ</td>
+            <td>
+              Quyết định số 206/QĐ-TTg ngày 12 tháng 02 năm 2011 của Thủ tướng
+              Chính phủ
+            </td>
           </tr>
           <tr>
             <td>2011</td>
             <td>Cờ thi đua Chính phủ</td>
-            <td>Quyết định số 42/QĐ-TTg ngày 06 tháng 1 năm 2012 của Thủ tướng Chính phủ</td>
+            <td>
+              Quyết định số 42/QĐ-TTg ngày 06 tháng 1 năm 2012 của Thủ tướng
+              Chính phủ
+            </td>
           </tr>
           <tr>
             <td>2012</td>
@@ -172,7 +377,9 @@
           </tr>
         </tbody>
       </table>
-      <p style="color:black; font-size: 14px;" ><b><i>* Hình thức khen thưởng</i></b></p>
+      <p style="color: black; font-size: 14px">
+        <b><i>* Hình thức khen thưởng</i></b>
+      </p>
       <table class="award-table">
         <thead>
           <tr>
@@ -264,50 +471,76 @@
           </tr>
           <tr>
             <td>2018</td>
-            <td>Bức trướng của Tổng liên đoàn lao động Việt Nam cho công đoàn trường</td>
+            <td>
+              Bức trướng của Tổng liên đoàn lao động Việt Nam cho công đoàn
+              trường
+            </td>
             <td>Quyết định số 917/QĐ-TLĐ ngày 09/05/2018</td>
           </tr>
         </tbody>
       </table>
-      
-        <h1 class="custom-heading-3">VI. LIÊN HỆ</h1>
-        
-        <div class="section">
-          <h2 class="custom-heading-4">Tên trường: Trường Đại học Giao thông vận tải Thành phố Hồ Chí Minh</h2>
-          <h3 class="custom-heading-4">Tên tiếng Anh: University of Transport Ho Chi Minh City</h3>
-          <h3 class="custom-heading-4">Tên viết tắt: UTH</h3>
-          <p>Địa chỉ Website: <a href="http://www.ut.edu.vn">http://www.ut.edu.vn</a></p>
-          <p>Fanpage: <a href="https://www.facebook.com/TruongDHGiaothongvantaiTPHCM">https://www.facebook.com/TruongDHGiaothongvantaiTPHCM</a></p>
-          <p>Mã tuyển sinh: GTS</p>
-          <p>Email: <a href="mailto:ut-hcmc@ut.edu.vn">ut-hcmc@ut.edu.vn</a></p>
-        </div>
-        
-        <div class="section">
-          <h3 class="custom-heading-4">Cơ sở 1: Số 62, đường Võ Oanh, P. 25, Q. Bình Thạnh, TP. HCM.</h3>
-          <p>- Điện thoại: (028) 35128 986 - 38991373</p>
-          <p>- Fax: (028) 38980456 - 35120567</p>
-        </div>
-        
-        <div class="section">
-          <h3 class="custom-heading-4">Cơ sở 2: Khu giảng đường và ký túc xá - số 10 đường số 12, KP3, P. An Khánh, TX. Thủ Đức, TP. HCM</h3>
-          <p>- Điện thoại: (028) 38990853 - 37404267</p>
-        </div>
-        
-        <div class="section">
-          <h3 class="custom-heading-4">Cơ sở 3: Khu huấn luyện và lớp học, Số 70 đường Tô Ký, phường Tân Chánh Hiệp, quận 12, TP. Hồ Chí Minh.</h3>
-          <p>- Điện thoại: (028) 38837811</p>
-        </div>
-        
-        <div class="section">
-          <h3 class="custom-heading-4">Cơ sở 4: Số 17 đường 3 tháng 2, phường 11, TP. Vũng Tàu</h3>
-          <p>- Điện thoại: (0254) 3852174 - 3 807755</p>
-        </div>
-        
-        <div class="section">
-          <h3 class="custom-heading-4">Cơ sở 5: Đồng Nai (xã Long Đức, huyện Long Thành, Đồng Nai)</h3>
-        </div>
+
+      <h1 class="custom-heading-3">VI. LIÊN HỆ</h1>
+
+      <div class="section">
+        <h2 class="custom-heading-4">
+          Tên trường: Trường Đại học Giao thông vận tải Thành phố Hồ Chí Minh
+        </h2>
+        <h3 class="custom-heading-4">
+          Tên tiếng Anh: University of Transport Ho Chi Minh City
+        </h3>
+        <h3 class="custom-heading-4">Tên viết tắt: UTH</h3>
+        <p>
+          Địa chỉ Website:
+          <a href="http://www.ut.edu.vn">http://www.ut.edu.vn</a>
+        </p>
+        <p>
+          Fanpage:
+          <a href="https://www.facebook.com/TruongDHGiaothongvantaiTPHCM"
+            >https://www.facebook.com/TruongDHGiaothongvantaiTPHCM</a
+          >
+        </p>
+        <p>Mã tuyển sinh: GTS</p>
+        <p>Email: <a href="mailto:ut-hcmc@ut.edu.vn">ut-hcmc@ut.edu.vn</a></p>
+      </div>
+
+      <div class="section">
+        <h3 class="custom-heading-4">
+          Cơ sở 1: Số 62, đường Võ Oanh, P. 25, Q. Bình Thạnh, TP. HCM.
+        </h3>
+        <p>- Điện thoại: (028) 35128 986 - 38991373</p>
+        <p>- Fax: (028) 38980456 - 35120567</p>
+      </div>
+
+      <div class="section">
+        <h3 class="custom-heading-4">
+          Cơ sở 2: Khu giảng đường và ký túc xá - số 10 đường số 12, KP3, P. An
+          Khánh, TX. Thủ Đức, TP. HCM
+        </h3>
+        <p>- Điện thoại: (028) 38990853 - 37404267</p>
+      </div>
+
+      <div class="section">
+        <h3 class="custom-heading-4">
+          Cơ sở 3: Khu huấn luyện và lớp học, Số 70 đường Tô Ký, phường Tân
+          Chánh Hiệp, quận 12, TP. Hồ Chí Minh.
+        </h3>
+        <p>- Điện thoại: (028) 38837811</p>
+      </div>
+
+      <div class="section">
+        <h3 class="custom-heading-4">
+          Cơ sở 4: Số 17 đường 3 tháng 2, phường 11, TP. Vũng Tàu
+        </h3>
+        <p>- Điện thoại: (0254) 3852174 - 3 807755</p>
+      </div>
+
+      <div class="section">
+        <h3 class="custom-heading-4">
+          Cơ sở 5: Đồng Nai (xã Long Đức, huyện Long Thành, Đồng Nai)
+        </h3>
+      </div>
     </div>
   </div>
 </body>
-{% endblock tongquan %}
-{% block content2 %}{% endblock %}
+{% endblock tongquan %} {% block content2 %}{% endblock %}

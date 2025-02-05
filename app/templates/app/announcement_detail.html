@@ -1,0 +1,85 @@
+{% extends 'app/base.html' %} {% load static %} {% block content1 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.name }}</title>
+    <link rel="stylesheet" href="{% static 'app/css/styles1.css' %}" />
+  </head>
+  <body class="main-gh">
+    <div class="container1">
+      <div class="header-content">
+        <a href="{% url 'home' %}">
+          <img src="{% static 'app/images/home.png' %}" align="left" />Trang chủ
+        </a>
+        <a>/</a><a href="{% url 'announcements' %}">Thông Báo</a>
+      </div>
+      <div class="content-wrapper">
+        <div class="custom-heading-1"><b>{{ page.name }}</b></div>
+        {% for item in page.contents.all %}
+        <p>{{ item.text|safe }}</p>
+        {% endfor %} {% for image in page.images.all %}
+        <div class="news-images">
+          <img
+            src="{{ image.image.url }}"
+            alt="Image"
+            style="width: 700px; height: 400px; display: block; margin: 0 auto"
+          />
+          {% if image.caption %}
+          <p style="color: blue; text-align: center">{{ image.caption }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+        <!-- Display content2 here -->
+        {% for item in page.contents2.all %}
+        <p>{{ item.text|safe }}</p>
+        {% endfor %}
+        <!-- Display image2 here -->
+        {% for image2 in page.images2.all %}
+        <div class="news-images">
+          <img
+            src="{{ image2.image.url }}"
+            alt="Image2"
+            style="width: 700px; height: 400px; display: block; margin: 0 auto"
+          />
+          {% if image2.caption %}
+          <p style="color: blue; text-align: center">{{ image2.caption }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+        <!-- Display content3 here -->
+        {% for item in page.contents3.all %}
+        <p>{{ item.text|safe }}</p>
+        {% endfor %} {% if page.get_embed_url %}
+        <div
+          class="video-container"
+          style="text-align: center; margin-top: 20px"
+        >
+          <iframe
+            width="560"
+            height="315"
+            src="{{ page.get_embed_url }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        {% endif %}
+        <div class="return-q">
+          <a href="{% url 'announcements' %}">
+            <div align="right">
+              <p style="color: aqua">Quay lại</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <img
+      src="{% static 'app/images/Chuc-Mung-Nam-Moi-2025-Loi-chuc-tet-den-ong-ba-cha-me.jpg' %}"
+      alt="Mô tả ảnh"
+      class="right-image"
+    />
+  </body>
+</html>
+{% endblock %}
