@@ -58,12 +58,32 @@ ul {
   color: white;
 }
 
+.header-content1 {
+  background-color: #c14f4d;
+  padding: 8px;
+  color: white;
+}
+
+.header-content2 {
+  background-color: #ca9229;
+  padding: 8px;
+  color: white;
+}
 .header-content a {
   color: white;
   text-decoration: none;
   margin-right: 8px;
 }
-
+.header-content2 a {
+  color: white;
+  text-decoration: none;
+  margin-right: 8px;
+}
+.header-content22 a {
+  color: white;
+  text-decoration: none;
+  margin-right: 8px;
+}
 .header-content img {
   vertical-align: middle;
   margin-right: 4px;
@@ -173,7 +193,12 @@ ul {
   .header-content {
     padding: 5px;
   }
-
+  .header-content1 {
+    padding: 5px;
+  }
+  .header-content2 {
+    padding: 5px;
+  }
   .content-wrapper {
     padding: 10px;
   }

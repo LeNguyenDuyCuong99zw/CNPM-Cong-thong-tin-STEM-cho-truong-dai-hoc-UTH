@@ -7,6 +7,7 @@ from django.utils import timezone
 class WebPage(models.Model):
     CATEGORY_CHOICES = [
         ('tin-tuc-su-kien', 'Tin Tức'),
+        ('tuyen-sinh', 'Tuyển Sinh'),
         ('other', 'Khác'),
     ]
 
