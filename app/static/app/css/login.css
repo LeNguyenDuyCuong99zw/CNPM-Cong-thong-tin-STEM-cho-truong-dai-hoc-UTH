@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    #background-image: url("{% static 'app_home/assets/images/backgrounds/banner-login.jpg' %}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    image-rendering: crisp-edges; 
+  }
+  
+/* 
+  .wrapper-login .header {
+    background: #005ab7;
+    box-shadow: 0px 1px 5px 2px rgb(191, 211, 222);
+    height: 100px;
+    padding: 10px 0;
+  }
+   */
+  .logo-login-main img {
+    height: 78px;
+  }
+  
+  .wrapper-login .main-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  /* container-main */
+  .container-main {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    margin-left: 950px;
+    margin-top: 100px;
+    /*  */
+    background: rgba(255, 255, 255, 1); /* Nền mờ */
+    box-shadow: 2px 8px 15px rgba(0, 0, 0, 0.2);
+  }
+ 
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  } */
+  .buttonDN {
+    background-color: #018486; /* Xanh lá */
+    border-radius: 10px;
+    color: white;
+    border: 1px solid;
+    /* padding: 10px 20px; */
+    width: 140px;
+    height: 50px;
+  }
+  
+  .buttonDN:hover {
+    background-color: white;
+    color: #333333;
+  }
+  
