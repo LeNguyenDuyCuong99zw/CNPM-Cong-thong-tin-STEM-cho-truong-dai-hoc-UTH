@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage
+from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage
 
 class ContentInline(admin.TabularInline):
     model = Content
@@ -26,6 +26,11 @@ class Content3Inline(admin.TabularInline):
     model = Content3
     extra = 1
     fields = ('text', 'order',)  # Thêm trường order
+
+class ChatMessageInline(admin.TabularInline):
+    model = ChatMessage
+    extra = 1
+    fields = ('sender', 'message', 'timestamp',)  # Thêm trường timestamp
 
 @admin.register(WebPage)
 class WebPageAdmin(admin.ModelAdmin):
@@ -130,3 +135,15 @@ class CarouselImageAdmin(admin.ModelAdmin):
     def image_tag(self, obj):
         return format_html('<img src="{}" style="max-width: 100px; max-height: 100px;" />'.format(obj.image.url))
     image_tag.short_description = 'Image'
+
+@admin.register(CustomUser)
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'hovaten', 'email')
+    search_fields = ('username', 'hovaten', 'email')
+
+@admin.register(SupportRequest)
+class SupportRequestAdmin(admin.ModelAdmin):
+    list_display = ('email', 'user', 'topic', 'request_title', 'created_at', 'response_date', 'status')
+    search_fields = ('email', 'user', 'topic', 'request_title')
+    ordering = ['-created_at']
+    inlines = [ChatMessageInline]

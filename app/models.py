@@ -144,19 +144,58 @@ class CarouselImage(models.Model):
 
     def __str__(self):
         return self.alt_text
-#login dashboard
-class Record(models.Model):
-	created_at = models.DateTimeField(auto_now_add=True)
-	first_name = models.CharField(max_length=50)
-	last_name =  models.CharField(max_length=50)
-	email =  models.CharField(max_length=100)
-	phone = models.CharField(max_length=15)
-	address =  models.CharField(max_length=100)
-	school =  models.CharField(max_length=50)
-	def __str__(self):
-		return(f"{self.first_name} {self.last_name}")
 
-#
+class CustomUser(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+    password = models.CharField(max_length=128)
+    hovaten = models.CharField(max_length=255, default='Default Name')  # Thêm trường hovaten với giá trị mặc định
+    email = models.EmailField(unique=True, default='example@example.com')  # Thêm trường email với giá trị mặc định
+
+    def __str__(self):
+        return self.username
+
+class SupportRequest(models.Model):
+    email = models.EmailField(max_length=120)
+    user = models.CharField(max_length=80)
+    topic = models.CharField(max_length=120)
+    request_title = models.CharField(max_length=200)
+    request_content = models.TextField()
+    attachment = models.FileField(upload_to='uploads/', null=True, blank=True)
+    response = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)  # Thêm trường created_at
+    response_date = models.DateTimeField(null=True, blank=True)  # Thêm trường response_date
+    STATUS_CHOICES = [
+        ('open', 'Open'),
+        ('closed', 'Closed'),
+    ]
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='open')  # Thêm trường status
+
+    def __str__(self):
+        return self.request_title
+
+class ChatMessage(models.Model):
+    support_request = models.ForeignKey(SupportRequest, related_name='messages', on_delete=models.CASCADE)
+    sender = models.CharField(max_length=80)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.sender}: {self.message[:50]}'
+
+# login dashboard
+class Record(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    address = models.CharField(max_length=100)
+    school = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+# left-menu
 class TuitionDebt(models.Model):
     semester = models.CharField(max_length=255)  
     class_code = models.CharField(max_length=50) 
@@ -171,3 +210,14 @@ class TuitionDebt(models.Model):
 
     def __str__(self):
         return self.subject_name
+
+# Thêm lớp Course
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+    year = models.IntegerField()
+    start_date = models.DateField()
+    end_date = models.DateField()
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name

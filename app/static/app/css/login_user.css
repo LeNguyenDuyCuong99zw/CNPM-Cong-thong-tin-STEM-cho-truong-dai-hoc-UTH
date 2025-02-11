@@ -1,0 +1,101 @@
+.login-main {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  width: 900px;
+  max-width: 90%;
+  gap: 30px;
+}
+
+.login-form,
+.login-info {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #00796b;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button {
+  padding: 12px; /* Same padding for input and button */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+.login-form button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px; /* Add margin to create space above the button */
+}
+
+.login-form button:hover {
+  background-color: #004d40;
+}
+
+.login-form a {
+  display: block;
+  text-align: right;
+  color: #00796b;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: color 0.3s;
+}
+
+.login-form a:hover {
+  color: #004d40;
+}
+
+.login-info {
+  background-color: #e0f7fa;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+}
+
+.login-info p {
+  margin-top: 10px;
+}
+
+.login-info a {
+  color: #00796b;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-info a:hover {
+  color: #004d40;
+}
+
+.login-info .fa-check {
+  color: #00796b;
+  margin-right: 5px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hỗ trợ trực tuyến ĐH GTVT TP.HCM</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/css/support.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/login_user.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <h1>Welcome to UTH Support</h1>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <nav>
+          <ul id="navbar">
+            <li>
+              <a href="{% url 'support' %}" class="hover-effect"
+                >Trung tâm hỗ trợ trực tuyến</a
+              >
+            </li>
+            <li><a href="#" class="hover-effect">Tạo hỗ trợ mới</a></li>
+            <li>
+              <a href="#" class="hover-effect">Kiểm tra tình trạng Yêu cầu</a>
+            </li>
+            <li>
+              <a href="{% url 'custom_login' %}" class="hover-effect"
+                >Đăng nhập</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="login-main">
+      <div class="login-container">
+        <div class="login-form">
+          <h1>Đăng nhập vào hệ thống hỗ trợ trường ĐH GTVT TPHCM</h1>
+          <form method="post" action="{% url 'custom_login' %}">
+            {% csrf_token %} {{ form.as_p }} {% if form.non_field_errors %}
+            <div class="error" id="error-message">
+              {{ form.non_field_errors|first }}
+            </div>
+            {% endif %}
+            <button type="submit">Đăng nhập</button>
+          </form>
+          <a href="#">Quên mật khẩu</a>
+        </div>
+        <div class="login-info">
+          <p>
+            <span class="fa fa-check"></span> Sinh viên sử dụng tài khoản sinh
+            viên (<a href="https://sv.ut.edu.vn/">sv.ut.edu.vn</a>) để đăng nhập
+          </p>
+          <p>
+            <span class="fa fa-check"></span> Giảng viên sử dụng mã giảng viên
+            (<a href="https://gv.ut.edu.vn/">gv.ut.edu.vn</a>) để đăng nhập
+          </p>
+          <p>
+            <span class="fa fa-check"></span> <b>Tôi là một nhân viên</b> -
+            <a href="/scp/">đăng nhập tại đây</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; Bản quyền 2024. Trường Đại học Giao thông vận tải TP. HCM</p>
+    </footer>
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const navbar = document.getElementById("navbar");
+
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+      });
+
+      // Tự động ẩn thông báo lỗi sau 3 giây
+      const errorMessage = document.getElementById("error-message");
+      if (errorMessage) {
+        setTimeout(() => {
+          errorMessage.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
