@@ -21,6 +21,18 @@ urlpatterns = [
     path('thong-bao-moi/', views.announcements, name='announcements'),
     path('thong-bao-moi/<slug:slug>/', views.announcement_detail, name='announcement_detail'),
     path('article/<slug:slug>/', views.article_detail, name='article_detail'),  
+    #login
+     #Khai báo phần login 
+    path('admin/', admin.site.urls),
+    path('login_home/', views.login_home, name='login_home'),
+    path('logout/', views.logout_user, name='logout'),
+    path('register/', views.register_user, name='register'),
+    path('record/<int:pk>', views.customer_record, name='record'),
+    path('delete_record/<int:pk>', views.delete_record, name='delete_record'),
+    path('add_record/', views.add_record, name='add_record'),
+    path('update_record/<int:pk>', views.update_record, name='update_record'),
+    #left-menu
+    path('tuition_debt/', views.tuition_debt, name='tuition_debt'),
 ]
 
 if settings.DEBUG:
