@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hỗ trợ trực tuyến ĐH GTVT TP.HCM</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/css/support_user.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/login_user.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <h1>Welcome to {{ hovaten}}</h1>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <nav>
+          <ul id="navbar">
+            <li>
+              <a href="{% url 'support' %}" class="hover-effect"
+                >Trung tâm hỗ trợ trực tuyến</a
+              >
+            </li>
+            <li>
+              <a href="{% url 'supportuser' %}" class="hover-effect"
+                >Tạo hỗ trợ mới</a
+              >
+            </li>
+            <li>
+              <a href="{% url 'user_support_requests' %}" class="hover-effect"
+                >Kiểm tra tình trạng Yêu cầu</a
+              >
+            </li>
+            <li>
+              <a href="{% url 'login' %}" class="hover-effect">Đăng Xuất</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="logo-container">
+      <a href="{% url 'support' %}" id="logo" title="Trung Tâm Hỗ Trợ">
+        <img src="https://support.ut.edu.vn/logo.php" alt="Trung Tâm Hỗ Trợ" />
+      </a>
+    </div>
+
+    <div>{% block content %}{% endblock %}</div>
+
+    <footer>
+      <p style="color: white">
+        &copy; Bản quyền 2024. Trường Đại học Giao thông vận tải TP. HCM
+      </p>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const navbar = document.getElementById("navbar");
+
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+      });
+      // Tự động ẩn thông báo lỗi sau 3 giây
+      const errorMessage = document.getElementById("error-message");
+      if (errorMessage) {
+        setTimeout(() => {
+          errorMessage.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

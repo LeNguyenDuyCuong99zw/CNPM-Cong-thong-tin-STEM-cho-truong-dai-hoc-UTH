@@ -1,0 +1,50 @@
+{% extends 'app/hotrsupport.html' %} {% load static %} {% block menu %}
+<div class="container">
+  <div class="logo-container">
+    <a href="{% url 'support' %}" id="logo" title="Trung Tâm Hỗ Trợ">
+      <img src="https://support.ut.edu.vn/logo.php" alt="Trung Tâm Hỗ Trợ" />
+    </a>
+  </div>
+  <div class="banner-support">
+    <img
+      src="{% static 'app/images/support/support.jpg' %}"
+      alt="Support Banner"
+      style="width: 100%; height: auto; border-radius: 10px"
+    />
+  </div>
+  <main class="support-section">
+    <div class="support-card">
+      <div class="icon">
+        <img
+          src="{% static 'app/images/support/new_ticket_icon.png' %}"
+          alt="Tạo hỗ trợ mới"
+        />
+      </div>
+      <div class="content">
+        <h2>Tạo hỗ trợ mới</h2>
+        <p>
+          Vui lòng cung cấp càng chi tiết càng tốt để nhà trường có thể hỗ trợ
+          bạn tốt nhất.
+        </p>
+        <a class="btn-custom" href="{% url 'login' %}">Tạo hỗ trợ mới</a>
+      </div>
+    </div>
+    <div class="support-card">
+      <div class="icon">
+        <img
+          src="{% static 'app/images/support/check_status_icon_blue.png' %}"
+          alt="Kiểm tra tình trạng Yêu cầu"
+        />
+      </div>
+      <div class="content">
+        <h2>Kiểm tra tình trạng Yêu cầu</h2>
+        <p>
+          Nhà trường lưu trữ lịch sử của tất cả các yêu cầu hỗ trợ hiện tại và
+          trước đây của bạn kèm theo phản hồi.
+        </p>
+        <a class="btn-custom" href="#">Kiểm tra tình trạng Yêu cầu</a>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
