@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'app/support/header_footer.html' %} {% block content %}
 <div class="form-container1">
   <h1>Phiếu yêu cầu hỗ trợ</h1>
@@ -268,3 +269,275 @@
   </form>
 </div>
 {% endblock %}
+=======
+{% extends 'app/support/header_footer.html' %} {% block content %}
+<div class="form-container1">
+  <h1>Phiếu yêu cầu hỗ trợ</h1>
+  <p>
+    Giảng viên/Sinh viên chọn đúng chủ đề, ghi rõ tiêu đề và nội dung cần hỗ
+    trợ.
+  </p>
+  <form
+    action="{% url 'handle_support_request' %}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <div class="form-group1">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value="{{ email }}"
+        required
+      />
+    </div>
+
+    <div class="form-group1">
+      <label for="user">Người dùng:</label>
+      <input type="text" id="user" name="user" value="{{ hovaten }}" required />
+    </div>
+
+    <div class="form-group1">
+      <label for="topic">Chủ đề trợ giúp:</label>
+      <select id="topic" name="topic" required>
+        <option value="default">- Chọn một chủ đề trợ giúp -</option>
+        <option value="TT Nhân lực & HL Hàng hải">
+          TT Nhân lực & HL Hàng hải
+        </option>
+        <option value="Hỗ trợ GV-SV">Hỗ trợ GV-SV</option>
+        <option value="Phòng Công tác sinh viên / Công tác sinh viên nội trú">
+          Phòng Công tác sinh viên / Công tác sinh viên nội trú
+        </option>
+        <option
+          value="Phòng Công tác sinh viên / Điểm rèn luyện, thẻ SV, đơn cứu"
+        >
+          Phòng Công tác sinh viên / Điểm rèn luyện, thẻ SV, đơn cứu
+        </option>
+        <option value="Phòng Công tác sinh viên / GCN sinh viên tại cơ sở Q.12">
+          Phòng Công tác sinh viên / GCN sinh viên tại cơ sở Q.12
+        </option>
+        <option
+          value="Phòng Công tác sinh viên / GCN sinh viên tại cơ sở TP.Thủ Đức"
+        >
+          Phòng Công tác sinh viên / GCN sinh viên tại cơ sở TP.Thủ Đức
+        </option>
+        <option
+          value="Phòng Công tác sinh viên / GCN sinh viên tại CS Bình Thạnh"
+        >
+          Phòng Công tác sinh viên / GCN sinh viên tại CS Bình Thạnh
+        </option>
+        <option
+          value="Phòng Công tác sinh viên / Học bổng, phong trào sinh viên"
+        >
+          Phòng Công tác sinh viên / Học bổng, phong trào sinh viên
+        </option>
+        <option value="Phòng Công tác sinh viên / Phụ trách chung">
+          Phòng Công tác sinh viên / Phụ trách chung
+        </option>
+        <option
+          value="Phòng Công tác sinh viên / Quản lý hành chính cơ sở TP Thủ Đức"
+        >
+          Phòng Công tác sinh viên / Quản lý hành chính cơ sở TP Thủ Đức
+        </option>
+        <option
+          value="Phòng Công tác sinh viên / Truyền thông, Sinh hoạt công dân"
+        >
+          Phòng Công tác sinh viên / Truyền thông, Sinh hoạt công dân
+        </option>
+        <option
+          value="Phòng Công tác sinh viên / Xử lý Tài khoản SV nợ Học phí"
+        >
+          Phòng Công tác sinh viên / Xử lý Tài khoản SV nợ Học phí
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Giải quyết đơn sinh viên"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Giải quyết đơn sinh viên
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Chuẩn đào tạo Ngoại ngữ UTH"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Chuẩn đào tạo Ngoại ngữ UTH
+        </option>
+        <option value="Phòng Đào tạo (Đại trà - CLC - IEC) / Xử lý học phần">
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Xử lý học phần
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Quy chế, quy định, học vụ"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Quy chế, quy định, học vụ
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / In bảng điểm, hoàn thành chương trình học"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / In bảng điểm, hoàn thành chương
+          trình học
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Đăng ký xét tốt nghiệp"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Đăng ký xét tốt nghiệp
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Xử lí điểm"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Xử lí điểm
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Thay đổi lịch dạy, báo nghỉ, dạy bù"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Thay đổi
+          lịch dạy, báo nghỉ, dạy bù
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Thay đổi phòng"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Thay đổi
+          phòng
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Các vấn đề khác liên quan"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Hỗ trợ Giảng viên / Các vấn đề
+          khác liên quan
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Văn phòng CS Bình Thạnh"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Văn phòng CS Bình Thạnh
+        </option>
+        <option value="Phòng Đào tạo (Đại trà - CLC - IEC) / Văn phòng CS Q12">
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Văn phòng CS Q12
+        </option>
+        <option
+          value="Phòng Đào tạo (Đại trà - CLC - IEC) / Văn phòng CS TP. Thủ Đức"
+        >
+          Phòng Đào tạo (Đại trà - CLC - IEC) / Văn phòng CS TP. Thủ Đức
+        </option>
+        <option
+          value="Phòng Kế hoạch - Tài vụ (Hệ chuẩn - Đại trà) / Xử lý học phí"
+        >
+          Phòng Kế hoạch - Tài vụ (Hệ chuẩn - Đại trà) / Xử lý học phí
+        </option>
+        <option value="Phòng Quản lý chất lượng / Công tác Khảo sát/Đánh giá">
+          Phòng Quản lý chất lượng / Công tác Khảo sát/Đánh giá
+        </option>
+        <option value="Phòng Quản lý chất lượng / Công tác khảo thí, phúc khảo">
+          Phòng Quản lý chất lượng / Công tác khảo thí, phúc khảo
+        </option>
+        <option
+          value="Phòng Quản lý chất lượng / Hòm thư góp ý về Đảm bảo chất lượng"
+        >
+          Phòng Quản lý chất lượng / Hòm thư góp ý về Đảm bảo chất lượng
+        </option>
+        <option
+          value="Trung tâm đào tạo thường xuyên / Công Tác Đào tạo/ Xét Chuyển Điểm"
+        >
+          Trung tâm đào tạo thường xuyên / Công Tác Đào tạo/ Xét Chuyển Điểm
+        </option>
+        <option
+          value="Trung tâm đào tạo thường xuyên / Công Tác Đào tạo/Đăng ký học phần"
+        >
+          Trung tâm đào tạo thường xuyên / Công Tác Đào tạo/Đăng ký học phần
+        </option>
+        <option
+          value="Trung tâm đào tạo thường xuyên / Công Tác Đào tạo/Lịch, điểm thi"
+        >
+          Trung tâm đào tạo thường xuyên / Công Tác Đào tạo/Lịch, điểm thi
+        </option>
+        <option value="Trung tâm đào tạo thường xuyên / LÃNH ĐẠO TRUNG TÂM">
+          Trung tâm đào tạo thường xuyên / LÃNH ĐẠO TRUNG TÂM
+        </option>
+        <option
+          value="Trung tâm đào tạo thường xuyên / Tư vấn hỗ trợ VHVL/Học Phí"
+        >
+          Trung tâm đào tạo thường xuyên / Tư vấn hỗ trợ VHVL/Học Phí
+        </option>
+        <option value="TT Ngôn ngữ CNTT& ĐTNV / Học phí, Học bổng, Lệ phí">
+          TT Ngôn ngữ CNTT& ĐTNV / Học phí, Học bổng, Lệ phí
+        </option>
+        <option
+          value="TT Ngôn ngữ CNTT& ĐTNV / Ngoại ngữ Hệ Đại trà (Hệ chuẩn)"
+        >
+          TT Ngôn ngữ CNTT& ĐTNV / Ngoại ngữ Hệ Đại trà (Hệ chuẩn)
+        </option>
+        <option value="TT Ngôn ngữ CNTT& ĐTNV / Ngoại ngữ Hệ Chất lượng cao">
+          TT Ngôn ngữ CNTT& ĐTNV / Ngoại ngữ Hệ Chất lượng cao
+        </option>
+        <option value="TT Ngôn ngữ CNTT& ĐTNV / Tin học">
+          TT Ngôn ngữ CNTT& ĐTNV / Tin học
+        </option>
+        <option value="TT Thông tin - Thư viện / Ban học liệu số">
+          TT Thông tin - Thư viện / Ban học liệu số
+        </option>
+        <option
+          value="TT Thông tin - Thư viện / Cơ sở vật chất tại Thư viện/Phòng LAB"
+        >
+          TT Thông tin - Thư viện / Cơ sở vật chất tại Thư viện/Phòng LAB
+        </option>
+        <option value="TT Thông tin - Thư viện / Mượn - trả sách, giáo trình">
+          TT Thông tin - Thư viện / Mượn - trả sách, giáo trình
+        </option>
+        <option value="TT Thông tin - Thư viện / Tài khoản Google/Microsoft">
+          TT Thông tin - Thư viện / Tài khoản Google/Microsoft
+        </option>
+        <option
+          value="TT Thông tin - Thư viện / Thư viện số - Thư viện liên kết"
+        >
+          TT Thông tin - Thư viện / Thư viện số - Thư viện liên kết
+        </option>
+        <option value="TT Thông tin - Thư viện / Trang cá nhân GV/Sinh viên">
+          TT Thông tin - Thư viện / Trang cá nhân GV/Sinh viên
+        </option>
+        <option
+          value="TT Thông tin - Thư viện / Xuất bản, Phát hành giáo trình"
+        >
+          TT Thông tin - Thư viện / Xuất bản, Phát hành giáo trình
+        </option>
+        <option
+          value="TT Thông tin - Thư viện / Y/c bổ sung, cập nhật Tài liệu."
+        >
+          TT Thông tin - Thư viện / Y/c bổ sung, cập nhật Tài liệu.
+        </option>
+        <option value="Viện ĐT CLC / Lãnh đạo Viện ĐT CLC">
+          Viện ĐT CLC / Lãnh đạo Viện ĐT CLC
+        </option>
+        <option value="Viện ĐT CLC / Học phí">Viện ĐT CLC / Học phí</option>
+        <option value="Viện IEC / Liên kết quốc tế">
+          Viện IEC / Liên kết quốc tế
+        </option>
+        <option value="Viện IEC / HTTA K23">Viện IEC / HTTA K23</option>
+      </select>
+    </div>
+
+    <div class="form-group1">
+      <label for="request-title">Tiêu đề yêu cầu hỗ trợ:</label>
+      <input type="text" id="request-title" name="request-title" required />
+    </div>
+
+    <div class="form-group1">
+      <label for="request-content">Nội dung yêu cầu hỗ trợ:</label>
+      <textarea
+        id="request-content"
+        name="request-content"
+        rows="5"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group1">
+      <label for="attachment">Tệp đính kèm:</label>
+      <input type="file" id="attachment" name="attachment" />
+    </div>
+
+    <div class="form-group1">
+      <button type="submit">Gửi đi</button>
+      <button type="button">Làm mới</button>
+      <button type="button">Hủy bỏ</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+>>>>>>> 68e7ef5be15dff3f6d4b656eae8c8e9ebfbf165b
