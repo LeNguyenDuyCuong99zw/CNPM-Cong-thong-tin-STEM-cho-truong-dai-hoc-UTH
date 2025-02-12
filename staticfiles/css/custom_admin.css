@@ -1,0 +1,85 @@
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.admin-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.admin-header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.admin-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.admin-table th {
+  background-color: #555;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table td {
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-button:hover {
+  background-color: #0056b3;
+}
+
+.admin-sidebar {
+  background-color: #222;
+  color: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.admin-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.admin-sidebar a:hover {
+  text-decoration: underline;
+  color: #4caf50;
+}
+
+.module h2 {
+  color: #4caf50;
+}
+
+.module th {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.module td {
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

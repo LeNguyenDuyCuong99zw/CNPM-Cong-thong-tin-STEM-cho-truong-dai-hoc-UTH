@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage
+from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Dashboard
 
 class ContentInline(admin.TabularInline):
     model = Content
@@ -147,3 +147,21 @@ class SupportRequestAdmin(admin.ModelAdmin):
     search_fields = ('email', 'user', 'topic', 'request_title')
     ordering = ['-created_at']
     inlines = [ChatMessageInline]
+
+@admin.register(Dashboard)
+class DashboardAdmin(admin.ModelAdmin):
+    list_display = ('total_webpages', 'total_webpages2tb', 'total_support_requests', 'last_updated')
+    readonly_fields = ('total_webpages', 'total_webpages2tb', 'total_support_requests', 'last_updated')
+    change_form_template = "admin/change_form.html"
+
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        obj = self.get_object(request, object_id)
+        if obj:
+            obj.update_statistics()
+        return super().change_view(request, object_id, form_url, extra_context)
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False

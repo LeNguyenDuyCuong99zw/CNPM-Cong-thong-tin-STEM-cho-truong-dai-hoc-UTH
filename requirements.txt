@@ -3,4 +3,5 @@ djangorestframework
 mysqlclient
 Pillow
 pytz
+django-admin-interface
 # Các gói khác mà bạn cần

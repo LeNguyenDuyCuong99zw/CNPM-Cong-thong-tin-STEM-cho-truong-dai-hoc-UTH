@@ -146,6 +146,21 @@ class CarouselImage(models.Model):
     def __str__(self):
         return self.alt_text
 
+class Dashboard(models.Model):
+    total_webpages = models.IntegerField(default=0)
+    total_webpages2tb = models.IntegerField(default=0)
+    total_support_requests = models.IntegerField(default=0)
+    last_updated = models.DateTimeField(auto_now=True)
+
+    def update_statistics(self):
+        self.total_webpages = WebPage.objects.count()
+        self.total_webpages2tb = WebPage2tb.objects.count()
+        self.total_support_requests = SupportRequest.objects.count()
+        self.save()
+
+    def __str__(self):
+        return f"Dashboard updated on {self.last_updated}"
+
 class CustomUser(models.Model):
     username = models.CharField(max_length=150, unique=True)
     password = models.CharField(max_length=128)
