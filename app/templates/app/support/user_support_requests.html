@@ -1,0 +1,175 @@
+{% extends 'app/support/header_footer.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yêu cầu hỗ trợ của tôi</title>
+    {% load static %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var rows = document.querySelectorAll(".clickable-row");
+        rows.forEach(function (row) {
+          row.addEventListener("click", function () {
+            window.location.href = row.dataset.href;
+          });
+        });
+      });
+    </script>
+  </head>
+  <style>
+    .tieude1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .support-table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .support-table th,
+    .support-table td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .support-table th {
+      background-color: #004d4d;
+      color: white;
+    }
+
+    .support-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .support-table tr:hover {
+      background-color: #ddd;
+      cursor: pointer;
+    }
+
+    .link {
+      color: #004d4d;
+      text-decoration: none;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    .info-table {
+      width: 80%;
+      margin: 20px auto 40px auto; /* Add margin to separate the tables */
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .info-table th {
+      background-color: #004d4d;
+      color: white;
+    }
+
+    .form-inline {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-inline input[type="text"],
+    .form-inline select {
+      margin-right: 10px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .form-inline button {
+      padding: 5px 10px;
+      background-color: #004d4d;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-inline button:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+  <body>
+    <table class="info-table">
+      <div class="tieude1">Lệnh</div>
+      <tbody>
+        <tr>
+          <td>
+            <form
+              method="GET"
+              action="{% url 'user_support_requests' %}"
+              class="form-inline"
+            >
+              <input type="text" name="search" placeholder="Tìm kiếm..." />
+              <button type="submit">Tìm</button>
+            </form>
+          </td>
+          <td>
+            <form
+              method="GET"
+              action="{% url 'user_support_requests' %}"
+              class="form-inline"
+            >
+              <select name="status">
+                <option value="">Tất cả</option>
+                <option value="open">Open</option>
+                <option value="closed">Closed</option>
+              </select>
+              <button type="submit">Lọc</button>
+            </form>
+          </td>
+          <td>
+            Open: {{ open_requests_count }}<br />
+            Closed: {{ closed_requests_count }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="support-table">
+      <thead>
+        <tr>
+          <th>Ticket</th>
+          <th>Ngày tạo</th>
+          <th>Trạng thái</th>
+          <th>Chủ đề</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for request in requests %}
+        <tr
+          class="clickable-row"
+          data-href="{% url 'support_request_detail' request.id %}"
+        >
+          <td>{{ request.id }}</td>
+          <td>{{ request.created_at|date:"d/m/Y" }}</td>
+          <td>{{ request.status }}</td>
+          <td>{{ request.topic }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
+{% endblock %}
