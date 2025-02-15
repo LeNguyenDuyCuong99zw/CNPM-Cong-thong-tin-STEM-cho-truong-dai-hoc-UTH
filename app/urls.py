@@ -45,6 +45,12 @@ urlpatterns = [
     path('home_dashboard/', views.home_dashboard, name='home_dashboard'),
     # left-menu
     path('tuition_debt/', views.tuition_debt, name='tuition_debt'),
+    path('add-news/', views.add_news, name='add_news'),
+    path('news-list/', views.news_list, name='news_list'),
+    path('delete_news/<int:id>/', views.delete_news, name='delete_news'),
+    path('edit_news/<int:id>/', views.edit_news, name='edit_news'),
+    #report-dashboard
+    path('dashboard/', views.dashboard_view, name='dashboard'),
 ]
 
 if settings.DEBUG:

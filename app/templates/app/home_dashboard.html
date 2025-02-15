@@ -1,13 +1,405 @@
-{% extends "app/master-page.html" %}
+{% extends "app/master-page.html" %} {% block left-menu %} {% load static %}
+<style>
+  /* Hiệu ứng hover cho các mục menu */
+  .sidebar-nav .sidebar-item a {
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-{% block left-menu %}
-{% include 'includes/left-menu.html' %}
-{% endblock %}
+  .sidebar-nav .sidebar-item a:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
 
-{% block header %}
-{% include 'includes/app-header.html' %}
-{% endblock %}
+  /* Hiệu ứng chuyển động cho các mục menu */
+  .sidebar-nav .sidebar-item {
+    transition: transform 0.3s, background-color 0.3s;
+  }
 
-{% block content %}
+  .sidebar-nav .sidebar-item:hover {
+    transform: scale(1.1); /* Phóng to khi hover */
+    background-color: #e0e0e0;
+  }
+
+  /* Hiệu ứng khi nhấp vào các mục menu */
+  .sidebar-nav .sidebar-item:active {
+    background-color: #d0d0d0;
+    transform: scale(0.95); /* Thu nhỏ lại khi nhấp vào */
+  }
+</style>
+<nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+  <ul id="sidebarnav">
+    <li class="nav-small-cap">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">Trang chủ</span>
+    </li>
+    <li class="sidebar-item">
+      <a
+        class="sidebar-link"
+        href="{% url 'dashboard' %}"
+        aria-expanded="false"
+      >
+        <span>
+          <i class="ti ti-layout-dashboard"></i>
+        </span>
+        <span class="hide-menu">Dashboard</span>
+      </a>
+    </li>
+    {% comment %}
+    <li class="nav-small-cap">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">UI COMPONENTS</span>
+    </li>
+    {% endcomment %}
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+        <span>
+          <i class="ti ti-article"></i>
+        </span>
+        <span class="hide-menu">Thông tin chung</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url 'add_news' %}" aria-expanded="false">
+        <span>
+          <i class="ti ti-alert-circle"></i>
+        </span>
+        <span class="hide-menu">Quản Lý Tin Tức</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a
+        class="sidebar-link"
+        href="{% url 'news_list' %}"
+        aria-expanded="false"
+      >
+        <span>
+          <i class="ti ti-alert-circle"></i>
+        </span>
+        <span class="hide-menu">Danh Sách Tin Tức</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a
+        class="sidebar-link"
+        href="{% url 'admin_support_requests' %}"
+        aria-expanded="false"
+      >
+        <span>
+          <i class="ti ti-cards"></i>
+        </span>
+        <span class="hide-menu">Quản Lý Hỗ trợ</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+        <span>
+          <i class="ti ti-file-description"></i>
+        </span>
+        <span class="hide-menu">Hoạt động sinh viên</span>
+      </a>
+    </li>
+    {% comment %}
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+        <span>
+          <i class="ti ti-typography"></i>
+        </span>
+        <span class="hide-menu">Typography</span>
+      </a>
+    </li>
+    {% endcomment %}
+    <li class="nav-small-cap">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">AUTH</span>
+    </li>
+    <li class="sidebar-item">
+      <a
+        class="sidebar-link"
+        href="{% url 'login_home' %}"
+        aria-expanded="false"
+      >
+        <span>
+          <i class="ti ti-login"></i>
+        </span>
+        <span class="hide-menu">Đăng nhập</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url 'register' %}" aria-expanded="false">
+        <span>
+          <i class="ti ti-user-plus"></i>
+        </span>
+        <span class="hide-menu">Đăng ký</span>
+      </a>
+    </li>
+    <li class="nav-small-cap">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">EXTRA</span>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url 'support' %}" aria-expanded="false">
+        <span>
+          <i class="ti ti-mood-happy"></i>
+        </span>
+        <span class="hide-menu">Support</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+        <span>
+          <i class="ti ti-aperture"></i>
+        </span>
+        <span class="hide-menu">Sample Page</span>
+      </a>
+    </li>
+  </ul>
+  <div
+    class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded"
+  >
+    <div class="d-flex">
+      <div class="unlimited-access-title me-3">
+        <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Get UTH</h6>
+        <a
+          href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/"
+          target="_blank"
+          class="btn btn-primary fs-2 fw-semibold lh-sm"
+          >Buy Pro</a
+        >
+      </div>
+      <div class="unlimited-access-img">
+        <img
+          class="favicon-icon"
+          src="{% static 'app/images/favicon/favicon.png' %}"
+          alt=""
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock %} {% block header %} {% load static %} {% comment %}
+<header class="app-header">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item d-block d-xl-none">
+        <a
+          class="nav-link sidebartoggler nav-icon-hover"
+          id="headerCollapse"
+          href="javascript:void(0)"
+        >
+          <i class="ti ti-menu-2"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+          <i class="ti ti-bell-ringing"></i>
+          <div class="notification bg-primary rounded-circle"></div>
+        </a>
+      </li>
+    </ul>
+    <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+      <ul
+        class="navbar-nav flex-row ms-auto align-items-center justify-content-end"
+      >
+        <a
+          href="https://adminmart.com/product/modernize-free-bootstrap-admin-dashboard/"
+          target="_blank"
+          class="btn btn-primary"
+          >Download Free</a
+        >
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link nav-icon-hover"
+            href="javascript:void(0)"
+            id="drop2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="{% static 'app_home/assets/images/profile/user-1.jpg' %}"
+              alt=""
+              width="35"
+              height="35"
+              class="rounded-circle"
+            />
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+            aria-labelledby="drop2"
+          >
+            <div class="message-body">
+              <a
+                href="javascript:void(0)"
+                class="d-flex align-items-center gap-2 dropdown-item"
+              >
+                <i class="ti ti-user fs-6"></i>
+                <p class="mb-0 fs-3">My Profile</p>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="d-flex align-items-center gap-2 dropdown-item"
+              >
+                <i class="ti ti-mail fs-6"></i>
+                <p class="mb-0 fs-3">My Account</p>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="d-flex align-items-center gap-2 dropdown-item"
+              >
+                <i class="ti ti-list-check fs-6"></i>
+                <p class="mb-0 fs-3">My Task</p>
+              </a>
+              <a
+                href="./authentication-login.html"
+                class="btn btn-outline-primary mx-3 mt-2 d-block"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+{% endcomment %}
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    font-size: 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .header-center {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .categories {
+    font-size: 16px;
+    margin-right: 15px;
+    color: #555;
+  }
+
+  .search-input {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+  }
+
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .notification-button {
+    position: relative;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+
+  .notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+  }
+</style>
+<div class="header">
+  <div class="header-left">
+    {% comment %} <button class="menu-toggle">☰</button> {% endcomment %}
+    <span class="logo">AdminHubUTH</span>
+  </div>
+  <div class="header-center">
+    <span class="categories">Categories</span>
+    <input type="text" class="search-input" placeholder="Search..." />
+    <button class="search-button">🔍</button>
+  </div>
+  <div class="header-right">
+    {% comment %}
+    <button class="notification-button">
+      {% endcomment %} {% comment %} <span class="notification-count"></span>
+    </button>
+    {% endcomment %}
+    <img
+      class="profile-picture"
+      src="{% static 'app/images/logos/admin-icon.png' %}"
+      alt="Profile"
+    />
+  </div>
+</div>
+
+{% endblock %} {% block content %} {% load static %}
+<h1>Trang chủ Quản trị của Nhân viên</h1>
+
+{% endblock %} {% block footer %}
+<footer>
+  <div
+    style="
+      background-color: white;
+      color: black;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 1600px;
+      height: 100px;
+    "
+  >
+    <p>&copy; {{ current_year }} Your Company Name. All rights reserved.</p>
+  </div>
+</footer>
 
 {% endblock %}

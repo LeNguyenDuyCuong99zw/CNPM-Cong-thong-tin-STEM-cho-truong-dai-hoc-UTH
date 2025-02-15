@@ -1,0 +1,141 @@
+{% extends "app/home_dashboard.html" %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.min.js"></script>
+    <style>
+      .container_y1 {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .header_y1 {
+        font-size: 32px;
+        color: #333;
+      }
+
+      .subheader_y1 {
+        font-size: 24px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .chart-container_y1 {
+        width: 80%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container_y1">
+      <h2 class="subheader_y1">Biểu Đồ Thống Kê</h2>
+      <div class="chart-container_y1">
+        <canvas id="reportChart" width="800" height="400"></canvas>
+      </div>
+    </div>
+    <script>
+      var ctx = document.getElementById('reportChart').getContext('2d');
+      var reportChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: {{ labels|safe }},
+              datasets: [{
+                  label: 'Report Statistics',
+                  data: {{ values|safe }},
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.8)',
+                      'rgba(54, 162, 235, 0.8)',
+                      'rgba(255, 206, 86, 0.8)',
+                      'rgba(75, 192, 192, 0.8)',
+                      'rgba(153, 102, 255, 0.8)',
+                      'rgba(255, 159, 64, 0.8)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 2
+              }]
+          },
+          options: {
+              responsive: true,
+              animation: {
+                  duration: 2000,
+                  easing: 'easeInOutQuart',
+                  onComplete: function() {
+                      var chartInstance = this.chart,
+                          ctx = chartInstance.ctx;
+                      ctx.textAlign = 'center';
+                      ctx.textBaseline = 'bottom';
+
+                      this.data.datasets.forEach(function(dataset, i) {
+                          var meta = chartInstance.getDatasetMeta(i);
+                          meta.data.forEach(function(bar, index) {
+                              var data = dataset.data[index];
+                              ctx.fillText(data, bar.x, bar.y - 5);
+                          });
+                      });
+                  }
+              },
+              plugins: {
+                  legend: {
+                      position: 'top',
+                  },
+                  title: {
+                      display: true,
+                      text: 'Thống Kê Báo Cáo'
+                  }
+              },
+              scales: {
+                  y: {
+                      beginAtZero: true,
+                      title: {
+                          display: true,
+                          text: 'Số Lượng'
+                      }
+                  },
+                  x: {
+                      title: {
+                          display: true,
+                          text: 'Loại'
+                      }
+                  }
+              },
+              hover: {
+                  animationDuration: 500,
+                  onHover: function(event, chartElement) {
+                      if (chartElement.length) {
+                          event.target.style.cursor = 'pointer';
+                      } else {
+                          event.target.style.cursor = 'default';
+                      }
+                  }
+              }
+          }
+      });
+
+      // Custom animation with anime.js
+      document.getElementById('reportChart').onmouseenter = function() {
+          anime({
+              targets: reportChart.data.datasets[0].data,
+              scaleY: [0, 1],
+              easing: 'easeOutElastic(1, .8)',
+              duration: 2000,
+              delay: anime.stagger(100)
+          });
+          reportChart.update();
+      };
+    </script>
+  </body>
+  {% endblock %}
+</html>

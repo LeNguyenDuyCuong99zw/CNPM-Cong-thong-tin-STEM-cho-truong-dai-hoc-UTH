@@ -1,179 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - Yêu cầu hỗ trợ</title>
-    {% load static %}
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-      }
+{% extends "app/home_dashboard.html" %} {% block content %}
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+  }
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+  .container_t5 {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
 
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 28px;
-        color: #333;
-      }
+  .header_t5 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+  }
 
-      .filter-form {
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+  .filter-form_t5 {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-      .filter-form div {
-        flex: 1;
-        margin: 0 10px;
-      }
+  .filter-form-group_t5 {
+    flex: 1;
+    margin: 10px 20px;
+  }
 
-      .filter-form label {
-        margin-right: 10px;
-        font-weight: bold;
-      }
+  .label_t5 {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #666;
+  }
 
-      .filter-form select,
-      .filter-form input {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        width: 100%;
-      }
+  .input_t5,
+  .select_t5 {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+  }
 
-      .filter-form button {
-        padding: 10px 20px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
+  .button_t5 {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-      .filter-form button:hover {
-        background-color: #45a049;
-      }
+  .button_t5:hover {
+    background-color: #45a049;
+  }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-      }
+  .table_t5 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
 
-      th,
-      td {
-        padding: 15px;
-        text-align: left;
-        border: 1px solid #ddd;
-      }
+  .th_t5,
+  .td_t5 {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
 
-      th {
-        background-color: #4caf50;
-        color: white;
-      }
+  .th_t5 {
+    background-color: #4caf50;
+    color: white;
+  }
 
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
+  .tr-even_t5 {
+    background-color: #f2f2f2;
+  }
 
-      tr:hover {
-        background-color: #ddd;
-      }
+  .tr_t5:hover {
+    background-color: #e0e0e0;
+  }
 
-      .link {
-        color: #4caf50;
-        text-decoration: none;
-        font-weight: bold;
-      }
+  .link_t5 {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
 
-      .link:hover {
-        text-decoration: underline;
-      }
+  .link_t5:hover {
+    text-decoration: underline;
+    color: #388e3c;
+  }
 
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .filter-form {
-          flex-direction: column;
-        }
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .filter-form_t5 {
+      flex-direction: column;
+      align-items: stretch;
+    }
 
-        .filter-form div {
-          margin: 10px 0;
-        }
+    .filter-form-group_t5 {
+      margin: 10px 0;
+    }
 
-        .filter-form button {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Danh sách yêu cầu hỗ trợ</h1>
-      <form method="GET" class="filter-form">
-        <div>
-          <label for="status">Trạng thái:</label>
-          <select name="status" id="status">
-            <option value="">Tất cả</option>
-            <option value="open">Mở</option>
-            <option value="closed">Đóng</option>
-          </select>
-        </div>
-        <div>
-          <label for="topic">Chủ đề:</label>
-          <input
-            type="text"
-            name="topic"
-            id="topic"
-            placeholder="Nhập chủ đề"
-          />
-        </div>
-        <div>
-          <button type="submit">Lọc</button>
-        </div>
-      </form>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Người dùng</th>
-            <th>Chủ đề</th>
-            <th>Tiêu đề</th>
-            <th>Nội dung</th>
-            <th>Hành động</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for request in requests %}
-          <tr>
-            <td>{{ request.id }}</td>
-            <td>{{ request.email }}</td>
-            <td>{{ request.user }}</td>
-            <td>{{ request.topic }}</td>
-            <td>{{ request.request_title }}</td>
-            <td>{{ request.request_content }}</td>
-            <td>
-              <a class="link" href="{% url 'view_details' request.id %}"
-                >Xem chi tiết</a
-              >
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+    .button_t5 {
+      width: 100%;
+    }
+  }
+</style>
+<div class="container_t5">
+  <h1 class="header_t5">Danh sách yêu cầu hỗ trợ</h1>
+  <form method="GET" class="filter-form_t5">
+    <div class="filter-form-group_t5">
+      <label for="status" class="label_t5">Trạng thái:</label>
+      <select name="status" id="status" class="select_t5">
+        <option value="">Tất cả</option>
+        <option value="open">Mở</option>
+        <option value="closed">Đóng</option>
+      </select>
     </div>
-  </body>
-</html>
+    <div class="filter-form-group_t5">
+      <label for="topic" class="label_t5">Chủ đề:</label>
+      <input
+        type="text"
+        name="topic"
+        id="topic"
+        placeholder="Nhập chủ đề"
+        class="input_t5"
+      />
+    </div>
+    <div class="filter-form-group_t5">
+      <button type="submit" class="button_t5">Lọc</button>
+    </div>
+  </form>
+  <table class="table_t5">
+    <thead>
+      <tr>
+        <th class="th_t5">ID</th>
+        <th class="th_t5">Email</th>
+        <th class="th_t5">Người dùng</th>
+        <th class="th_t5">Chủ đề</th>
+        <th class="th_t5">Tiêu đề</th>
+        <th class="th_t5">Nội dung</th>
+        <th class="th_t5">Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for request in requests %}
+      <tr class="tr-even_t5">
+        <td class="td_t5">{{ request.id }}</td>
+        <td class="td_t5">{{ request.email }}</td>
+        <td class="td_t5">{{ request.user }}</td>
+        <td class="td_t5">{{ request.topic }}</td>
+        <td class="td_t5">{{ request.request_title }}</td>
+        <td class="td_t5">{{ request.request_content }}</td>
+        <td class="td_t5">
+          <a class="link_t5" href="{% url 'view_details' request.id %}"
+            >Xem chi tiết</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

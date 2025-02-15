@@ -1,17 +1,84 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Record
+from .models import Record, WebPage, Content, Content2, Content3, Image
+
+class WebPageForm(forms.ModelForm):
+    class Meta:
+        model = WebPage
+        fields = ['site', 'name', 'category', 'slug', 'image', 'content', 'video_url', 'image2', 'created_at']
+        labels = {
+            'site': 'Trang web',
+            'name': 'Tên',
+            'category': 'Danh mục',
+            'slug': 'Slug',
+            'image': 'Hình ảnh',
+            'content': 'Nội dung',
+            'video_url': 'URL video',
+            'image2': 'Hình ảnh 2',
+            'created_at': 'Ngày tạo',
+        }
+        widgets = {
+            'site': forms.Select(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'slug': forms.TextInput(attrs={'class': 'form-control'}),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control'}),
+            'video_url': forms.URLInput(attrs={'class': 'form-control'}),
+            'image2': forms.FileInput(attrs={'class': 'form-control'}),
+            'created_at': forms.DateTimeInput(attrs={'class': 'form-control'}),
+        }
+
+class ContentForm(forms.ModelForm):
+    class Meta:
+        model = Content
+        fields = ['text', 'order']
+        labels = {
+            'text': 'Nội dung',
+            'order': 'Thứ tự',
+        }
+        widgets = {
+            'text': forms.Textarea(attrs={'class': 'form-control'}),
+            'order': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
+class Content2Form(forms.ModelForm):
+    class Meta:
+        model = Content2
+        fields = ['text', 'order']
+        labels = {
+            'text': 'Nội dung',
+            'order': 'Thứ tự',
+        }
+        widgets = {
+            'text': forms.Textarea(attrs={'class': 'form-control'}),
+            'order': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
+class Content3Form(forms.ModelForm):
+    class Meta:
+        model = Content3
+        fields = ['text', 'order']
+        labels = {
+            'text': 'Nội dung',
+            'order': 'Thứ tự',
+        }
+        widgets = {
+            'text': forms.Textarea(attrs={'class': 'form-control'}),
+            'order': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
 
 class StudentNewForm(forms.Form):
-    code = forms.CharField(label="code", max_length=100)
+    code = forms.CharField(label="code", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
 class CourseNewForm(forms.Form):
-    name = forms.CharField(label="name", max_length=100)
-    year = forms.IntegerField(label="year", min_value=1995)
-    startDate = forms.DateField(label="startDate")
-    endDate = forms.DateField(label="endDate")
-    active = forms.BooleanField(label="active")
+    name = forms.CharField(label="name", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    year = forms.IntegerField(label="year", min_value=1995, widget=forms.NumberInput(attrs={'class': 'form-control'}))
+    startDate = forms.DateField(label="startDate", widget=forms.DateInput(attrs={'class': 'form-control'}))
+    endDate = forms.DateField(label="endDate", widget=forms.DateInput(attrs={'class': 'form-control'}))
+    active = forms.BooleanField(label="active", widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
@@ -55,5 +122,5 @@ class AddRecordForm(forms.ModelForm):
 
 # Custom Login Form
 class CustomLoginForm(forms.Form):
-    username = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'placeholder': 'Tên đăng nhập'}), required=True)
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Mật khẩu'}), required=True)
+    username = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'placeholder': 'Tên đăng nhập', 'class': 'form-control'}), required=True)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Mật khẩu', 'class': 'form-control'}), required=True)

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from .models import WebPage, WebPage2tb, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Record, TuitionDebt, Course
+from .models import WebPage, WebPage2tb, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Record, TuitionDebt, Course ,Report
 from .forms import CustomLoginForm, SignUpForm, AddRecordForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -9,7 +9,10 @@ from django.contrib import messages
 from django.template import loader
 from django.core.cache import cache
 from django.utils import timezone
-
+from .forms import WebPageForm, ContentForm, Content2Form, Content3Form
+import matplotlib.pyplot as plt
+import io
+import urllib, base64
 # Các view hiện có
 def home(request):
     news_pages = WebPage.objects.filter(category='tin-tuc-su-kien').order_by('-created_at')[:5]
@@ -226,7 +229,11 @@ def view_details(request, request_id):
     return render(request, 'app/support/view_details.html', {'request': support_request})
 
 # Các view mới thêm vào
+@login_required
 def home_dashboard(request):
+    if not request.user.is_staff:
+        messages.error(request, "You do not have permission to access this page.")
+        return redirect('login')  # Redirect to login page or any other page
     return render(request, 'app/home_dashboard.html')
 
 def clear_cache(request):
@@ -340,4 +347,94 @@ def tuition_debt(request):
         "tuition_list": tuition_list,
         "total_credits": total_credits,
         "total_tuition": total_tuition,
+    })
+
+@login_required
+def add_news(request):
+    if request.method == 'POST':
+        webpage_form = WebPageForm(request.POST, request.FILES)
+        content_form = ContentForm(request.POST)
+        content2_form = Content2Form(request.POST)
+        content3_form = Content3Form(request.POST)
+        if (webpage_form.is_valid() and content_form.is_valid() and 
+            content2_form.is_valid() and content3_form.is_valid()):
+            webpage = webpage_form.save()
+            content = content_form.save(commit=False)
+            content.webpage = webpage
+            content.save()
+            content2 = content2_form.save(commit=False)
+            content2.webpage = webpage
+            content2.save()
+            content3 = content3_form.save(commit=False)
+            content3.webpage = webpage
+            content3.save()
+            return redirect('news_list')
+    else:
+        webpage_form = WebPageForm()
+        content_form = ContentForm()
+        content2_form = Content2Form()
+        content3_form = Content3Form()
+    return render(request, 'app/tintuc/add_news.html', {
+        'webpage_form': webpage_form,
+        'content_form': content_form,
+        'content2_form': content2_form,
+        'content3_form': content3_form
+    })
+
+@login_required
+def news_list(request):
+    news = WebPage.objects.all()
+    return render(request, 'app/tintuc/news_list.html', {'news': news})
+
+@login_required
+def delete_news(request, id):
+    news_item = get_object_or_404(WebPage, id=id)
+    if request.method == 'POST':
+        news_item.delete()
+        return redirect('news_list')
+    return HttpResponse(status=405)
+
+@login_required
+def edit_news(request, id):
+    news_item = get_object_or_404(WebPage, id=id)
+    if request.method == 'POST':
+        webpage_form = WebPageForm(request.POST, request.FILES, instance=news_item)
+        content_form = ContentForm(request.POST, instance=news_item.contents.first())
+        content2_form = Content2Form(request.POST, instance=news_item.contents2.first())
+        content3_form = Content3Form(request.POST, instance=news_item.contents3.first())
+        if (webpage_form.is_valid() and content_form.is_valid() and 
+            content2_form.is_valid() and content3_form.is_valid()):
+            webpage_form.save()
+            content_form.save()
+            content2_form.save()
+            content3_form.save()
+            return redirect('news_list')
+    else:
+        webpage_form = WebPageForm(instance=news_item)
+        content_form = ContentForm(instance=news_item.contents.first())
+        content2_form = Content2Form(instance=news_item.contents2.first())
+        content3_form = Content3Form(instance=news_item.contents3.first())
+    return render(request, 'app/tintuc/edit_news.html', {
+        'webpage_form': webpage_form,
+        'content_form': content_form,
+        'content2_form': content2_form,
+        'content3_form': content3_form
+    })
+    
+def dashboard_view(request):
+    # Lấy báo cáo mới nhất
+    bao_cao_moi_nhat = Report.objects.latest('report_date')
+
+    # Chuẩn bị dữ liệu cho biểu đồ
+    labels = ['Tin Tức Sự Kiện', 'Thông Báo', 'Yêu Cầu Hỗ Trợ', 'Bài Viết']
+    values = [
+        bao_cao_moi_nhat.total_webpages,
+        bao_cao_moi_nhat.total_webpages2tb,
+        bao_cao_moi_nhat.total_support_requests,
+        bao_cao_moi_nhat.total_articles
+    ]
+
+    return render(request, 'app/dashboard/dashboard.html', {
+        'labels': labels,
+        'values': values
     })
