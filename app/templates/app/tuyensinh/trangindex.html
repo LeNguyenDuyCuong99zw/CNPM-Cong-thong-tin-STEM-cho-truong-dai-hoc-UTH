@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %} {% load static %} {% block tongquan %}
+
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'app/images/home.png' %}" align="left" />Trang chủ
+      </a>
+    </div>
+    {% include 'includes/menu_tuyensinh.html' %}
+    <div class="content-wrapper">
+      <div class="custom-heading-1">
+        <b>Chào mừng bạn, {{ student_name }}</b>
+      </div>
+      <p>
+        Thông tin của bạn đã được ghi lại. Trong thời gian ngắn sẽ có người liên
+        hệ hỗ trợ.
+      </p>
+      <div class="return-q">
+        <a href="{% url 'home' %}">
+          <div align="right"><p style="color: aqua">Quay lại</p></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <img
+    src="{% static 'app/images/Chuc-Mung-Nam-Moi-2025-Loi-chuc-tet-den-ong-ba-cha-me.jpg' %}"
+    alt="Mô tả ảnh"
+    class="right-image"
+  />
+</body>
+{% endblock tongquan %}

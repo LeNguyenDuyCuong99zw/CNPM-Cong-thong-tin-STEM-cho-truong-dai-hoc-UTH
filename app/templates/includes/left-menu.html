@@ -1,159 +1,182 @@
-{% load static %}
-<style>
-  /* Hiệu ứng hover cho các mục menu */
-  .sidebar-nav .sidebar-item a {
-    transition: background-color 0.3s, color 0.3s;
-  }
-
-  .sidebar-nav .sidebar-item a:hover {
-    background-color: #f0f0f0;
-    color: #333;
-  }
-
-  /* Hiệu ứng chuyển động cho các mục menu */
-  .sidebar-nav .sidebar-item {
-    transition: transform 0.3s, background-color 0.3s;
-  }
-
-  .sidebar-nav .sidebar-item:hover {
-    transform: scale(1.1); /* Phóng to khi hover */
-    background-color: #e0e0e0;
-  }
-
-  /* Hiệu ứng khi nhấp vào các mục menu */
-  .sidebar-nav .sidebar-item:active {
-    background-color: #d0d0d0;
-    transform: scale(0.95); /* Thu nhỏ lại khi nhấp vào */
-  }
-</style>
-<nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-  <ul id="sidebarnav">
-    <li class="nav-small-cap">
-      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-      <span class="hide-menu">Trang chủ</span>
-    </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="./index.html" aria-expanded="false">
-        <span>
-          <i class="ti ti-layout-dashboard"></i>
-        </span>
-        <span class="hide-menu">Dashboard</span>
-      </a>
-    </li>
-    {% comment %}
-    <li class="nav-small-cap">
-      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-      <span class="hide-menu">UI COMPONENTS</span>
-    </li>
-    {% endcomment %}
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
-        <span>
-          <i class="ti ti-article"></i>
-        </span>
-        <span class="hide-menu">Thông tin chung</span>
-      </a>
-    </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="{% url 'add_news' %}" aria-expanded="false">
-        <span>
-          <i class="ti ti-alert-circle"></i>
-        </span>
-        <span class="hide-menu">Quản Lý Tin Tức</span>
-      </a>
-    </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-        <span>
-          <i class="ti ti-cards"></i>
-        </span>
-        <span class="hide-menu">Quản Lý Hỗ trợ</span>
-      </a>
-    </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
-        <span>
-          <i class="ti ti-file-description"></i>
-        </span>
-        <span class="hide-menu">Hoạt động sinh viên</span>
-      </a>
-    </li>
-    {% comment %}
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
-        <span>
-          <i class="ti ti-typography"></i>
-        </span>
-        <span class="hide-menu">Typography</span>
-      </a>
-    </li>
-    {% endcomment %}
-    <li class="nav-small-cap">
-      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-      <span class="hide-menu">AUTH</span>
-    </li>
-    <li class="sidebar-item">
-      <a
-        class="sidebar-link"
-        href="{% url 'login_home' %}"
-        aria-expanded="false"
-      >
-        <span>
-          <i class="ti ti-login"></i>
-        </span>
-        <span class="hide-menu">Đăng nhập</span>
-      </a>
-    </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="{% url 'register' %}" aria-expanded="false">
-        <span>
-          <i class="ti ti-user-plus"></i>
-        </span>
-        <span class="hide-menu">Đăng ký</span>
-      </a>
-    </li>
-    <li class="nav-small-cap">
-      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-      <span class="hide-menu">EXTRA</span>
-    </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="{% url 'support' %}" aria-expanded="false">
-        <span>
-          <i class="ti ti-mood-happy"></i>
-        </span>
-        <span class="hide-menu">Support</span>
-      </a>
-    </li>
-    <li class="sidebar-item">
-      <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
-        <span>
-          <i class="ti ti-aperture"></i>
-        </span>
-        <span class="hide-menu">Sample Page</span>
-      </a>
-    </li>
-  </ul>
-  <div
-    class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded"
-  >
-    <div class="d-flex">
-      <div class="unlimited-access-title me-3">
-        <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Get UTH</h6>
-        <a
-          href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/"
-          target="_blank"
-          class="btn btn-primary fs-2 fw-semibold lh-sm"
-          >Buy Pro</a
-        >
+{% extends 'app/base.html' %} {% load static %} {% block banner_slider %}
+<div class="content">
+  <div class="carousel">
+    <div class="carousel-inner">
+      {% for image in carousel_images %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" />
       </div>
-      <div class="unlimited-access-img">
-        <img
-          class="favicon-icon"
-          src="{% static 'app/images/favicon/favicon.png' %}"
-          alt=""
-          class="img-fluid"
-        />
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button">
+      <span>&lt;</span>
+    </button>
+    <button class="carousel-control-next" type="button">
+      <span>&gt;</span>
+    </button>
+    <div class="carousel-indicators">
+      {% for image in carousel_images %}
+      <button class="{% if forloop.first %}active{% endif %}"></button>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock banner_slider %} {% block content2 %}
+<div class="menu-wrapper">
+  <div class="menu_6">
+    <a href="#" class="menu-item_6"> TIN TỨC - HOẠT ĐỘNG </a>
+    <a href="https://vanbang.ut.edu.vn/tracuu/" class="menu-item_6">
+      TRA CỨU VĂN BẰNG
+    </a>
+    <a href="{% url 'support' %}" class="menu-item_6"> HỖ TRỢ </a>
+    <a href="#" class="menu-item_6"> TUYỂN SINH SAU ĐẠI HỌC </a>
+    <a href="https://portal.ut.edu.vn" class="menu-item_6"> CỔNG THÔNG TIN </a>
+  </div>
+</div>
+{% endblock %} {% block content1 %}
+<div class="main-content-amin6">
+  <div class="wrapper6">
+    <div class="container6">
+      <div class="video5">
+        <div class="video6">
+          <iframe
+            width="100%"
+            height="240"
+            src="https://www.youtube.com/embed/g-g5l-4iaYU"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <button
+          class="button6"
+          onclick="window.location.href='https://www.youtube.com/watch?v=g-g5l-4iaYU'"
+        >
+          Giới thiệu Đại học Giao Thông Vận Tải TP.HCM
+        </button>
+      </div>
+      <div class="left-sections6">
+        <div class="row6">
+          <div class="section6">
+            <a href="link_to_journal_of_science">
+              <img
+                src="{% static 'app/images/contentmain/tapchikhoahoc.jpg' %}"
+                alt="Journal of Science"
+              />
+              <div class="title6">TẠP CHÍ KHOA HỌC</div>
+            </a>
+          </div>
+          <div class="section6">
+            <a href="link_to_scholarships">
+              <img
+                src="{% static 'app/images/contentmain/hocbong.webp' %}"
+                alt="Scholarships"
+              />
+              <div class="title6">HỌC BỔNG</div>
+            </a>
+          </div>
+        </div>
+        <div class="row6">
+          <div class="section6">
+            <a href="{% url 'news_tuyen' %}">
+              <img
+                src="{% static 'app/images/contentmain/tuyensin.jpg' %}"
+                alt="Admission News"
+              />
+              <div class="title6">TIN TUYỂN SINH</div>
+            </a>
+          </div>
+          <div class="section6">
+            <a href="link_to_library">
+              <img
+                src="{% static 'app/images/contentmain/thuvien.jpg' %}"
+                alt="Library"
+              />
+              <div class="title6">THƯ VIỆN</div>
+            </a>
+          </div>
+          <div class="section6">
+            <a href="link_to_facilities">
+              <img
+                src="{% static 'app/images/contentmain/csvc.jpg' %}"
+                alt="Facilities"
+              />
+              <div class="title6">CƠ SỞ VẬT CHẤT</div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</nav>
+</div>
+{% endblock content1 %} {% block content3 %}
+<div class="content-wrapper9">
+  <div class="left-content">
+    <div class="news-container9">
+      <div class="news-section9">
+        <a href="{% url 'news_pages' %}" class="contenttin">Tin Tức Sự Kiện</a>
+        <div class="news-list9">
+          {% for page in news_pages|slice:":5" %}
+          <div class="news-item9">
+            <a href="{% url 'news_detail' slug=page.slug %}" class="news-link9">
+              <div class="news-thumbnail-container9">
+                {% if page.image %}
+                <img
+                  src="{{ page.image.url }}"
+                  alt="{{ page.name }}"
+                  class="news-thumbnail9"
+                />
+                {% endif %}
+              </div>
+            </a>
+            <div class="news-title-container9">
+              <div class="news-title9">{{ page.name }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="view-more">
+          <a href="{% url 'news_pages' %}" class="view-more-button">Xem thêm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-content">
+    <div class="news-container9">
+      <div class="news-section9">
+        <a href="{% url 'announcements' %}" class="contenttin1"
+          >Thông Báo Mới</a
+        >
+        <div class="news-list9">
+          {% for page in announcements|slice:":5" %}
+          <div class="news-item9">
+            <a
+              href="{% url 'announcement_detail' slug=page.slug %}"
+              class="news-link9"
+            >
+              <div class="news-container811">
+                <div class="news-title-container9811">
+                  <div class="button-container811">
+                    <button class="round-button811">
+                      <img
+                        src="{% static 'app/images/thongbaologo.png' %}"
+                        alt="Image"
+                      />
+                    </button>
+                  </div>
+                  <div class="news-title9811">{{ page.name }}</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="view-more">
+          <a href="{% url 'announcements' %}" class="view-more-button"
+            >Xem thêm</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

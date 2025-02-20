@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from .models import WebPage, WebPage2tb, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Record, TuitionDebt, Course ,Report
+from .models import WebPage, WebPage2tb, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Record, TuitionDebt, Course ,Report , StudentRegistration 
 from .forms import CustomLoginForm, SignUpForm, AddRecordForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.template import loader
 from django.core.cache import cache
 from django.utils import timezone
-from .forms import WebPageForm, ContentForm, Content2Form, Content3Form
+from .forms import WebPageForm, ContentForm, Content2Form, Content3Form , StudentRegistrationForm, StudentLoginForm
 import matplotlib.pyplot as plt
 import io
 import urllib, base64
@@ -96,8 +96,31 @@ def news_tuyen(request):
 
     page_number = request.GET.get('page')
     news_pages = paginator.get_page(page_number)
-    
-    return render(request, 'app/news_tuyen.html', {'news_pages': news_pages})
+
+    if request.method == 'POST' and 'register' in request.POST:
+        form = StudentRegistrationForm(request.POST)
+        if form.is_valid():
+            student = form.save()
+            request.session['student_name'] = student.name  # Lưu tên sinh viên vào session
+            return redirect('trangindex', student_name=student.name)  # Pass the student's name to the template
+    else:
+        form = StudentRegistrationForm()
+
+    login_form = StudentLoginForm()
+
+    if request.method == 'POST' and 'login' in request.POST:
+        login_form = StudentLoginForm(request.POST)
+        if login_form.is_valid():
+            login_name = login_form.cleaned_data['name']
+            login_phone = login_form.cleaned_data['phone']
+            try:
+                student = StudentRegistration.objects.get(name=login_name, phone=login_phone)
+                request.session['student_name'] = student.name  # Lưu tên sinh viên vào session
+                return redirect('trangindex', student_name=student.name)  # Redirect to the same page as registration
+            except StudentRegistration.DoesNotExist:
+                login_form.add_error(None, 'Tên hoặc số điện thoại không đúng.')
+
+    return render(request, 'app/news_tuyen.html', {'news_pages': news_pages, 'form': form, 'login_form': login_form})
 
 def news_tuyendetal(request, slug):
     page = get_object_or_404(WebPage, slug=slug)
@@ -171,7 +194,7 @@ def handle_support_request(request):
     return HttpResponse("Invalid request method", status=405)
 
 # View hiển thị yêu cầu hỗ trợ của người dùng đã đăng nhập
-@login_required
+
 def user_support_requests(request):
     hovaten = request.session.get('hovaten', None)
     if hovaten:
@@ -188,7 +211,7 @@ def user_support_requests(request):
         return redirect('login')
 
 # View hiển thị chi tiết yêu cầu hỗ trợ
-@login_required
+
 def support_request_detail(request, request_id):
     support_request = get_object_or_404(SupportRequest, id=request_id)
     hovaten = request.session.get('hovaten', None)
@@ -420,7 +443,7 @@ def edit_news(request, id):
         'content2_form': content2_form,
         'content3_form': content3_form
     })
-    
+
 def dashboard_view(request):
     # Lấy báo cáo mới nhất
     bao_cao_moi_nhat = Report.objects.latest('report_date')
@@ -438,3 +461,34 @@ def dashboard_view(request):
         'labels': labels,
         'values': values
     })
+
+def trangindex(request, student_name):
+    return render(request, 'app/tuyensinh/trangindex.html', {'student_name': student_name})
+
+def student_register(request):
+    if request.method == 'POST':
+        form = StudentRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')  
+    else:
+        form = StudentRegistrationForm()
+    return render(request, 'includes/student_registration_form.html', {'form': form})
+
+def thong_tin_thi_sinh(request):
+    student_name = request.session.get('student_name')
+    student = get_object_or_404(StudentRegistration, name=student_name)
+    return render(request, 'app/tuyensinh/thong_tin_thi_sinh.html', {'student': student})
+
+def dang_ky_tuyen_sinh(request):
+    form = StudentRegistrationForm()
+    if request.method == 'POST':
+        form = StudentRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('trangindex', student_name=form.cleaned_data['name'])
+    return render(request, 'app/tuyensinh/dang_ky_tuyen_sinh.html', {'form': form})
+
+def student_list(request):
+    students = StudentRegistration.objects.all()
+    return render(request, 'app/tuyensinh/admin_tuyensinh.html', {'students': students})

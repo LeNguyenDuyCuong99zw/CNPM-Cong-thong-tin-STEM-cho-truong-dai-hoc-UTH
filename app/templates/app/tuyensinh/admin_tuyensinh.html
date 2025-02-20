@@ -1,0 +1,62 @@
+{% extends "app/home_dashboard.html" %} {% block content %}
+<head>
+  <style>
+    .content-wrapper {
+      margin-top: 20px;
+    }
+    .student-card {
+      border: 1px solid #4caf50;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 15px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .student-card h3 {
+      margin-top: 0;
+      color: #4caf50;
+    }
+    .student-card p {
+      margin: 4px 0;
+    }
+    .student-card a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+    .student-card a:hover {
+      text-decoration: underline;
+    }
+    /* Highlight phone number */
+    .student-card p strong {
+      color: #d32f2f; /* Red color for emphasis */
+    }
+    /* Adjust the size of the student card */
+    .student-card {
+      max-width: 300px; /* Set the desired width */
+    }
+  </style>
+</head>
+<body class="main-gh">
+  <div class="container1">
+    <div class="content-wrapper">
+      <div class="custom-heading-1">
+        <b>Danh sách sinh viên đăng ký</b>
+      </div>
+      {% for student in students %}
+      <div class="student-card">
+        <h3>{{ student.name }}</h3>
+        <p><strong>Số điện thoại:</strong> {{ student.phone }}</p>
+        <p><strong>Ngày sinh:</strong> {{ student.dob }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Trường học:</strong> {{ student.school }}</p>
+        <p><strong>Tỉnh / Thành phố:</strong> {{ student.location }}</p>
+        <p>
+          <strong>Facebook:</strong>
+          <a href="{{ student.facebook }}" target="_blank">Facebook</a>
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %}

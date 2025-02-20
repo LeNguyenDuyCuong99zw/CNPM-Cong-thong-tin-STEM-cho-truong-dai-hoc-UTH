@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %} {% load static %} {% block tongquan %}
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'app/images/home.png' %}" align="left" />Trang chủ
+      </a>
+    </div>
+    {% include 'includes/menu_tuyensinh.html' %}
+    <div class="content-wrapper">
+      <div class="custom-heading-1">
+        <b>Đăng ký tuyển sinh</b>
+      </div>
+      <form method="post" action="{% url 'dang_ky_tuyen_sinh' %}">
+        {% csrf_token %}
+        <div class="form-row_uth">
+          <div class="form-field_uth">
+            {{ form.major.label_tag }} {{ form.major }}
+          </div>
+        </div>
+        <button type="submit" name="register">Đăng ký</button>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}

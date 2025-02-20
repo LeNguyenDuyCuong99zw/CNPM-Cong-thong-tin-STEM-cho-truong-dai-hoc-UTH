@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Registration Page</title>
+    <style>
+      .wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+        margin-left: 180px;
+      }
+      .content {
+        width: 100%;
+        max-width: 960px;
+      }
+      .body_uth {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #e0f7e4;
+      }
+      .container_uth {
+        display: flex;
+        padding: 10px;
+      }
+      .video-container_uth {
+        flex: 1;
+        margin-right: 10px;
+      }
+      .video-container_uth iframe {
+        width: 100%;
+        height: 450px;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+      }
+      .form-container_uth {
+        flex: 1;
+        background-color: #388e3c;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        color: white;
+      }
+      .form-container_uth h2 {
+        text-align: center;
+        margin-top: 0;
+        color: white;
+      }
+      .form-row_uth {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .form-field_uth {
+        flex: 0 0 48%; /* Two columns with some space between */
+        margin-bottom: 10px;
+      }
+      .form-container_uth input[type="text"],
+      .form-container_uth input[type="date"],
+      .form-container_uth input[type="email"],
+      .form-container_uth input[type="url"],
+      .form-container_uth select {
+        width: 100%;
+        padding: 8px 12px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .form-container_uth button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 16px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 14px;
+      }
+      .form-container_uth button:hover {
+        background-color: #45a049;
+      }
+      .label_uth {
+        font-weight: bold;
+        color: white;
+      }
+      .login-button_uth {
+        background-color: #2e7d32;
+        color: white;
+        padding: 8px 12px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: auto;
+        font-size: 12px;
+        text-align: center;
+      }
+      .login-button_uth:hover {
+        background-color: #1b5e20;
+      }
+      .errorlist {
+        color: red;
+        list-style-type: none;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+    <script>
+      function toggleLoginForm() {
+        var loginForm = document.getElementById("login-form");
+        if (loginForm.classList.contains("hidden")) {
+          loginForm.classList.remove("hidden");
+        } else {
+          loginForm.classList.add("hidden");
+        }
+      }
+    </script>
+  </head>
+  <body class="body_uth">
+    <div class="wrapper">
+      <div class="content">
+        <div class="container_uth">
+          <div class="video-container_uth">
+            <iframe
+              src="https://www.youtube.com/embed/RQ9uY_DCnpY"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="form-container_uth">
+            <h2>Đăng ký</h2>
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-row_uth">
+                <div class="form-field_uth">
+                  {{ form.name.label_tag }} {{ form.name }}
+                </div>
+                <div class="form-field_uth">
+                  {{ form.phone.label_tag }} {{ form.phone }}
+                </div>
+                <div class="form-field_uth">
+                  {{ form.dob.label_tag }} {{ form.dob }}
+                </div>
+                <div class="form-field_uth">
+                  {{ form.email.label_tag }} {{ form.email }}
+                </div>
+                <div class="form-field_uth">
+                  {{ form.school.label_tag }} {{ form.school }}
+                </div>
+                <div class="form-field_uth">
+                  {{ form.location.label_tag }} {{ form.location }}
+                </div>
+                <div class="form-field_uth">
+                  {{ form.facebook.label_tag }} {{ form.facebook }}
+                </div>
+              </div>
+              <button type="submit" name="register">Đăng ký</button>
+            </form>
+            <button class="login-button_uth" onclick="toggleLoginForm()">
+              Đăng nhập
+            </button>
+            <div id="login-form" class="hidden">
+              <h2>Đăng nhập</h2>
+              <form method="post" action="{% url 'news_tuyen' %}">
+                {% csrf_token %}
+                <div class="form-row_uth">
+                  <div class="form-field_uth">
+                    {{ login_form.name.label_tag }} {{ login_form.name }}
+                  </div>
+                  <div class="form-field_uth">
+                    {{ login_form.phone.label_tag }} {{ login_form.phone }}
+                  </div>
+                </div>
+                <button type="submit" name="login" class="login-button_uth">
+                  Đăng nhập
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

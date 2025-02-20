@@ -239,3 +239,15 @@ class Report(models.Model):
 
     def __str__(self):
         return f"Report for {self.report_date}"
+
+class StudentRegistration(models.Model):
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    dob = models.DateField(null=True, blank=True)  # Make dob optional
+    email = models.EmailField()
+    school = models.CharField(max_length=100)
+    location = models.CharField(max_length=50)
+    facebook = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name

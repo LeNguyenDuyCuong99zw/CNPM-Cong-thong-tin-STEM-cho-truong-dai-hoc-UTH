@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Report
+from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Report, StudentRegistration
 
 class ContentInline(admin.TabularInline):
     model = Content
@@ -159,3 +159,9 @@ class ReportAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+
+@admin.register(StudentRegistration)
+class StudentRegistrationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'phone', 'dob', 'email', 'school', 'location', 'facebook')
+    search_fields = ('name', 'phone', 'email', 'school', 'location')
+    ordering = ['-dob']  # Order by date of birth descending

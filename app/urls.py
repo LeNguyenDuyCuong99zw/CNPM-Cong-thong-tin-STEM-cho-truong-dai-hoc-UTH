@@ -51,6 +51,12 @@ urlpatterns = [
     path('edit_news/<int:id>/', views.edit_news, name='edit_news'),
     #report-dashboard
     path('dashboard/', views.dashboard_view, name='dashboard'),
+    path('student-register/', views.student_register, name='student_register'),
+    #tuyensinh
+    path('trangindex/<str:student_name>/', views.trangindex, name='trangindex'),
+    path('thong-tin-thi-sinh/', views.thong_tin_thi_sinh, name='thong_tin_thi_sinh'),
+    path('dang-ky-tuyen-sinh/', views.dang_ky_tuyen_sinh, name='dang_ky_tuyen_sinh'),
+    path('danh-sach-sinh-vien/', views.student_list, name='student_list'), 
 ]
 
 if settings.DEBUG:

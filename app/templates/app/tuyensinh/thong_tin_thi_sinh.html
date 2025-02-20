@@ -1,0 +1,55 @@
+{% extends 'app/base.html' %} {% load static %} {% block tongquan %}
+<head>
+  <style>
+    .student-card {
+      border: 1px solid #4caf50;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .student-card h3 {
+      margin-top: 0;
+      color: #4caf50;
+    }
+    .student-card p {
+      margin: 4px 0;
+    }
+    .student-card a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+    .student-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="main-gh">
+  <div class="container1">
+    <div class="header-content">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'app/images/home.png' %}" align="left" />Trang chủ
+      </a>
+    </div>
+    {% include 'includes/menu_tuyensinh.html' %}
+    <div class="content-wrapper">
+      <div class="custom-heading-1">
+        <b>Thông tin thí sinh</b>
+      </div>
+      <div class="student-card">
+        <h3>{{ student.name }}</h3>
+        <p><strong>Số điện thoại:</strong> {{ student.phone }}</p>
+        <p><strong>Ngày sinh:</strong> {{ student.dob }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Trường học:</strong> {{ student.school }}</p>
+        <p><strong>Tỉnh / Thành phố:</strong> {{ student.location }}</p>
+        <p>
+          <strong>Facebook:</strong>
+          <a href="{{ student.facebook }}" target="_blank">Facebook</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock tongquan %}

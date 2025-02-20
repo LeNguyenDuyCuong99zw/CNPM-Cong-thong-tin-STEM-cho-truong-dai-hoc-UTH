@@ -1,0 +1,36 @@
+<head>
+  <style>
+    .menu {
+      background-color: #18ad3a;
+      overflow: hidden;
+    }
+    .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu ul li {
+      float: left;
+    }
+    .menu ul li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+      border-radius: 0;
+    }
+    .menu ul li a:hover {
+      background-color: #09ca36;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<div class="menu">
+  <ul>
+    <li><a href="{% url 'thong_tin_thi_sinh' %}">Thông tin thí sinh</a></li>
+    <li><a href="{% url 'dang_ky_tuyen_sinh' %}">Đăng ký tuyển sinh</a></li>
+  </ul>
+</div>

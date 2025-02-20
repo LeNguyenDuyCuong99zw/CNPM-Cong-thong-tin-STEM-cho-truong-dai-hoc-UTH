@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Record, WebPage, Content, Content2, Content3, Image
+from .models import Record, WebPage, Content, Content2, Content3, Image , StudentRegistration
 
 class WebPageForm(forms.ModelForm):
     class Meta:
@@ -124,3 +124,69 @@ class AddRecordForm(forms.ModelForm):
 class CustomLoginForm(forms.Form):
     username = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'placeholder': 'Tên đăng nhập', 'class': 'form-control'}), required=True)
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Mật khẩu', 'class': 'form-control'}), required=True)
+
+class StudentRegistrationForm(forms.ModelForm):
+    class Meta:
+        model = StudentRegistration
+        fields = ['name', 'phone', 'dob', 'email', 'school', 'location', 'facebook']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập họ và tên'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập số điện thoại'}),
+            'dob': forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'placeholder': 'Nhập ngày sinh'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Nhập email'}),
+            'school': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập trường học'}),
+            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Chọn tỉnh / thành phố'}),
+            'facebook': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Nhập URL Facebook'}),
+        }
+        error_messages = {
+            'name': {
+                'required': 'Vui lòng nhập họ và tên.',
+            },
+            'phone': {
+                'required': 'Vui lòng nhập số điện thoại.',
+            },
+            'dob': {
+                'required': 'Vui lòng nhập ngày sinh.',
+            },
+            'email': {
+                'required': 'Vui lòng nhập email.',
+            },
+            'school': {
+                'required': 'Vui lòng nhập trường học.',
+            },
+            'location': {
+                'required': 'Vui lòng chọn tỉnh / thành phố.',
+            },
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(StudentRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['name'].label = "Họ và tên"
+        self.fields['phone'].label = "Số điện thoại"
+        self.fields['dob'].label = "Ngày sinh"
+        self.fields['email'].label = "Email"
+        self.fields['school'].label = "Trường học"
+        self.fields['location'].label = "Tỉnh / Thành phố"
+        self.fields['facebook'].label = "Facebook"
+
+        for field in self.fields.values():
+            field.required = False  # Disable the required attribute
+            field.error_messages = {'required': 'Vui lòng điền thông tin này.'}
+            
+class StudentLoginForm(forms.Form):
+    name = forms.CharField(
+        label="Họ và tên",
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập họ và tên'})
+    )
+    phone = forms.CharField(
+        label="Số điện thoại",
+        max_length=15,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập số điện thoại'})
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(StudentLoginForm, self).__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.required = True  # Make the fields required
+            field.error_messages = {'required': 'Vui lòng điền thông tin này.'}
