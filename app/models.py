@@ -251,3 +251,12 @@ class StudentRegistration(models.Model):
 
     def __str__(self):
         return self.name
+    
+class GvLogin(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+    password = models.CharField(max_length=128)
+    hovaten = models.CharField(max_length=255, default='Default Name')  
+    email = models.EmailField(unique=True, default='example@example.com')  
+
+    def __str__(self):
+        return self.username

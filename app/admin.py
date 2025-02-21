@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Report, StudentRegistration
+from .models import WebPage, WebPage2tb, Content, Content2, Image, Image2, Content3, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Report, StudentRegistration, GvLogin
 
 class ContentInline(admin.TabularInline):
     model = Content
@@ -165,3 +165,10 @@ class StudentRegistrationAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone', 'dob', 'email', 'school', 'location', 'facebook')
     search_fields = ('name', 'phone', 'email', 'school', 'location')
     ordering = ['-dob']  # Order by date of birth descending
+
+# Đăng ký model GvLogin vào admin
+@admin.register(GvLogin)
+class GvLoginAdmin(admin.ModelAdmin):
+    list_display = ('username', 'hovaten', 'email')
+    search_fields = ('username', 'hovaten', 'email')
+    ordering = ['username']

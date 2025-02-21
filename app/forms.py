@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Record, WebPage, Content, Content2, Content3, Image , StudentRegistration
+from .models import Record, WebPage, Content, Content2, Content3, Image , StudentRegistration , GvLogin
 
 class WebPageForm(forms.ModelForm):
     class Meta:
@@ -190,3 +190,7 @@ class StudentLoginForm(forms.Form):
         for field in self.fields.values():
             field.required = True  # Make the fields required
             field.error_messages = {'required': 'Vui lòng điền thông tin này.'}
+
+class GvLoginForm(forms.Form):
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(widget=forms.PasswordInput)

@@ -2,6 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from .views import gv_login_view , support_nhan_vien
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -57,6 +58,8 @@ urlpatterns = [
     path('thong-tin-thi-sinh/', views.thong_tin_thi_sinh, name='thong_tin_thi_sinh'),
     path('dang-ky-tuyen-sinh/', views.dang_ky_tuyen_sinh, name='dang_ky_tuyen_sinh'),
     path('danh-sach-sinh-vien/', views.student_list, name='student_list'), 
+    path('gv-login/', gv_login_view, name='gv_login'),
+    path('support-nhan-vien/', support_nhan_vien, name='support_nhan_vien'),
 ]
 
 if settings.DEBUG:

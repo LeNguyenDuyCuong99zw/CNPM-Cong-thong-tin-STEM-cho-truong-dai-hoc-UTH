@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from .models import WebPage, WebPage2tb, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Record, TuitionDebt, Course ,Report , StudentRegistration 
+from .models import WebPage, WebPage2tb, Article, CarouselImage, CustomUser, SupportRequest, ChatMessage, Record, TuitionDebt, Course ,Report , StudentRegistration , GvLogin
 from .forms import CustomLoginForm, SignUpForm, AddRecordForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.template import loader
 from django.core.cache import cache
 from django.utils import timezone
-from .forms import WebPageForm, ContentForm, Content2Form, Content3Form , StudentRegistrationForm, StudentLoginForm
+from .forms import WebPageForm, ContentForm, Content2Form, Content3Form , StudentRegistrationForm, StudentLoginForm , GvLoginForm
 import matplotlib.pyplot as plt
 import io
 import urllib, base64
@@ -492,3 +492,37 @@ def dang_ky_tuyen_sinh(request):
 def student_list(request):
     students = StudentRegistration.objects.all()
     return render(request, 'app/tuyensinh/admin_tuyensinh.html', {'students': students})
+
+def gv_login_view(request):
+    if request.method == 'POST':
+        form = GvLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            try:
+                user = GvLogin.objects.get(username=username, password=password)
+                # Perform login (you might want to use Django's authentication system)
+                request.session['gv_user_id'] = user.id
+                return redirect('home_dashboard')  # Redirect to a home page or dashboard
+            except GvLogin.DoesNotExist:
+                form.add_error(None, 'Invalid username or password')
+    else:
+        form = GvLoginForm()
+    return render(request, 'app/login/gv_login.html', {'form': form})
+
+def support_nhan_vien(request):
+    if request.method == 'POST':
+        form = GvLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            try:
+                user = GvLogin.objects.get(username=username, password=password)
+                # Perform login (you might want to use Django's authentication system)
+                request.session['gv_user_id'] = user.id
+                return redirect('admin_support_requests')  # Redirect to a home page or dashboard
+            except GvLogin.DoesNotExist:
+                form.add_error(None, 'Invalid username hoặc mật khẩu')
+    else:
+        form = GvLoginForm()
+    return render(request, 'app/login/support_nhan_vien.html', {'form': form})
