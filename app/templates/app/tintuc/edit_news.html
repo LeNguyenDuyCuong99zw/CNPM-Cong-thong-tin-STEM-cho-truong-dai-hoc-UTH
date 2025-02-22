@@ -1,15 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chỉnh Sửa Tin Tức</title>
-  </head>
-  <body>
-    <h1>Chỉnh Sửa Tin Tức</h1>
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %} {{ webpage_form.as_p }} {{ content_form.as_p }}
-      <button type="submit">Lưu</button>
-    </form>
-  </body>
-</html>
+{% extends "app/home_dashboard.html" %} {% block content %}
+<style>
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  p {
+    text-align: center;
+    color: #555;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .delete-button:hover {
+    background-color: #ff1a1a;
+  }
+
+  .cancel-button {
+    background-color: #ccc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .cancel-button:hover {
+    background-color: #999;
+  }
+</style>
+<div class="container">
+  <h1>Chỉnh Sửa Tin Tức</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ webpage_form.as_p }} {{ content_form.as_p }}
+    <div class="button-container">
+      <button type="submit" class="delete-button">Lưu</button>
+      <button
+        type="button"
+        class="cancel-button"
+        onclick="window.location.href='{{ cancel_url }}'"
+      >
+        Hủy
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

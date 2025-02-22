@@ -1,236 +1,220 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chi tiết yêu cầu hỗ trợ</title>
-    {% load static %}
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-      }
+{% extends "app/home_dashboard.html" %} {% block content %} {% load static %}
+<style>
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
-      .content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+  }
 
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #ddd;
-      }
+  .header .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
 
-      .header .title {
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-      }
+  .header .actions {
+    display: flex;
+    gap: 10px;
+  }
 
-      .header .actions {
-        display: flex;
-        gap: 10px;
-      }
+  .header .actions a {
+    text-decoration: none;
+    color: #4caf50;
+    font-weight: bold;
+  }
 
-      .header .actions a {
-        text-decoration: none;
-        color: #4caf50;
-        font-weight: bold;
-      }
+  .header .actions a:hover {
+    text-decoration: underline;
+  }
 
-      .header .actions a:hover {
-        text-decoration: underline;
-      }
+  .section {
+    margin-bottom: 20px;
+  }
 
-      .section {
-        margin-bottom: 20px;
-      }
+  .section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: left;
+  }
 
-      .section h2 {
-        font-size: 20px;
-        margin-bottom: 10px;
-        color: #333;
-        text-align: left;
-      }
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
-      .detail-table {
-        width: 100%;
-        border-collapse: collapse;
-        background-color: white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+  .detail-table th,
+  .detail-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
 
-      .detail-table th,
-      .detail-table td {
-        padding: 15px;
-        text-align: left;
-        border: 1px solid #ddd;
-      }
+  .detail-table th {
+    background-color: #4caf50;
+    color: white;
+  }
 
-      .detail-table th {
-        background-color: #4caf50;
-        color: white;
-      }
+  .detail-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-      .detail-table tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
+  .detail-table tr:hover {
+    background-color: #ddd;
+  }
 
-      .detail-table tr:hover {
-        background-color: #ddd;
-      }
+  .chat-container {
+    width: 100%;
+    margin: 20px auto;
+  }
 
-      .chat-container {
-        width: 100%;
-        margin: 20px auto;
-      }
+  .chat-messages {
+    border: 1px solid #ddd;
+    padding: 10px;
+    height: 300px;
+    overflow-y: scroll;
+  }
 
-      .chat-messages {
-        border: 1px solid #ddd;
-        padding: 10px;
-        height: 300px;
-        overflow-y: scroll;
-      }
+  .form-container {
+    margin-top: 10px;
+  }
 
-      .form-container {
-        margin-top: 10px;
-      }
+  .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+  }
 
-      .form-container textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        resize: vertical;
-      }
+  .form-container button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-      .form-container button {
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
+  .form-container button:hover {
+    background-color: #45a049;
+  }
 
-      .form-container button:hover {
-        background-color: #45a049;
-      }
+  @media (max-width: 768px) {
+    .detail-container {
+      flex-direction: column;
+    }
+  }
+</style>
+<div class="content">
+  <div class="header">
+    <div class="title">Chi tiết yêu cầu hỗ trợ</div>
+    <div class="actions">
+      <a href="{% url 'admin_support_requests' %}">Quay lại danh sách</a>
+    </div>
+  </div>
 
-      @media (max-width: 768px) {
-        .detail-container {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="content">
-      <div class="header">
-        <div class="title">Chi tiết yêu cầu hỗ trợ</div>
-        <div class="actions">
-          <a href="{% url 'admin_support_requests' %}">Quay lại danh sách</a>
+  <div class="section">
+    <h2>Thông tin thẻ cơ bản</h2>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <td>{{ request.id }}</td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td>{{ request.email }}</td>
+        </tr>
+        <tr>
+          <th>Người dùng</th>
+          <td>{{ request.user }}</td>
+        </tr>
+        <tr>
+          <th>Chủ đề</th>
+          <td>{{ request.topic }}</td>
+        </tr>
+        <tr>
+          <th>Tiêu đề</th>
+          <td>{{ request.request_title }}</td>
+        </tr>
+        <tr>
+          <th>Nội dung</th>
+          <td>{{ request.request_content }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Thông tin phản hồi</h2>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th>Tệp đính kèm</th>
+          <td>
+            {% if request.attachment %}
+            <a href="{% static 'uploads/' %}{{ request.attachment }}"
+              >Tải xuống</a
+            >
+            {% else %} Không có {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>Phản hồi</th>
+          <td><a href="{% url 'respond' request.id %}">Phản hồi</a></td>
+        </tr>
+        <tr>
+          <th>Ngày tạo</th>
+          <td>{{ request.created_at|date:"d/m/Y" }}</td>
+        </tr>
+        <tr>
+          <th>Ngày gửi phản hồi</th>
+          <td>{{ request.response_date|date:"d/m/Y" }}</td>
+        </tr>
+        <tr>
+          <th>Trạng thái</th>
+          <td>{{ request.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Trò chuyện</h2>
+    <div class="chat-container">
+      <div class="chat-messages">
+        {% for message in request.messages.all %}
+        <div>
+          <strong>{{ message.sender }}:</strong> {{ message.message }}
+          <em>({{ message.timestamp|date:"d/m/Y H:i" }})</em>
         </div>
+        {% endfor %}
       </div>
-
-      <div class="section">
-        <h2>Thông tin thẻ cơ bản</h2>
-        <table class="detail-table">
-          <tbody>
-            <tr>
-              <th>ID</th>
-              <td>{{ request.id }}</td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td>{{ request.email }}</td>
-            </tr>
-            <tr>
-              <th>Người dùng</th>
-              <td>{{ request.user }}</td>
-            </tr>
-            <tr>
-              <th>Chủ đề</th>
-              <td>{{ request.topic }}</td>
-            </tr>
-            <tr>
-              <th>Tiêu đề</th>
-              <td>{{ request.request_title }}</td>
-            </tr>
-            <tr>
-              <th>Nội dung</th>
-              <td>{{ request.request_content }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="section">
-        <h2>Thông tin phản hồi</h2>
-        <table class="detail-table">
-          <tbody>
-            <tr>
-              <th>Tệp đính kèm</th>
-              <td>
-                {% if request.attachment %}
-                <a href="{% static 'uploads/' %}{{ request.attachment }}"
-                  >Tải xuống</a
-                >
-                {% else %} Không có {% endif %}
-              </td>
-            </tr>
-            <tr>
-              <th>Phản hồi</th>
-              <td><a href="{% url 'respond' request.id %}">Phản hồi</a></td>
-            </tr>
-            <tr>
-              <th>Ngày tạo</th>
-              <td>{{ request.created_at|date:"d/m/Y" }}</td>
-            </tr>
-            <tr>
-              <th>Ngày gửi phản hồi</th>
-              <td>{{ request.response_date|date:"d/m/Y" }}</td>
-            </tr>
-            <tr>
-              <th>Trạng thái</th>
-              <td>{{ request.status }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="section">
-        <h2>Trò chuyện</h2>
-        <div class="chat-container">
-          <div class="chat-messages">
-            {% for message in request.messages.all %}
-            <div>
-              <strong>{{ message.sender }}:</strong> {{ message.message }}
-              <em>({{ message.timestamp|date:"d/m/Y H:i" }})</em>
-            </div>
-            {% endfor %}
-          </div>
-          <div class="form-container">
-            <form method="POST" action="{% url 'send_message' request.id %}">
-              {% csrf_token %}
-              <input type="hidden" name="sender" value="Admin" />
-              <textarea name="message" rows="3"></textarea>
-              <button type="submit">Gửi</button>
-            </form>
-          </div>
-        </div>
+      <div class="form-container">
+        <form method="POST" action="{% url 'send_message' request.id %}">
+          {% csrf_token %}
+          <input type="hidden" name="sender" value="Admin" />
+          <textarea name="message" rows="3"></textarea>
+          <button type="submit">Gửi</button>
+        </form>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}
